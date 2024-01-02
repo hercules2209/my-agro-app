@@ -1,0 +1,58 @@
+.dropzone {
+    border: 2px dashed #0087F7;
+    border-radius: 5px;
+    background: white;
+    width: 40%; /* Adjust the width as needed */
+    height: 50%; /* Adjust the height as needed */
+    margin: auto; /* Center the dropzone */
+   }
+
+   nav {
+    background-color: #333; /* Set background color */
+    padding: 10px; /* Add padding for better spacing */
+    color: white; /* Set text color */
+  }
+  
+  nav h1 {
+    margin: 0;
+  }
+  
+  nav select, nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  nav select {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 10px; /* Add margin between h1 and select */
+    background-color: #555; /* Set background color for select */
+    color: white; /* Set text color for select */
+    border: none;
+    border-radius: 5px;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  nav ul li {
+    margin-right: 10px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Add smooth transition effect */
+  }
+  
+  nav ul li a:hover {
+    background-color: #555; /* Change background color on hover */
+  }
+  
