@@ -14,6 +14,11 @@ const Navbar = () => {
           <option value="/">Home</option>
           <option value="/services">Chatbot</option> {/*This part is dropdown wit all out ai services  */}
           <option value="/disease">Disease Identification</option>
+          <option value="/recommend">Crop Recommendation</option>
+          <option value="/weather">Weather</option>
+          <option value="/market">Market</option>
+          <option value="/#About">About</option>
+
         </select>
         </div>
       ) : (
@@ -21,9 +26,12 @@ const Navbar = () => {
         <h1 style={{ textAlign: 'left', marginRight: '10px' }} >Farm App</h1>
         <ul style={{ display: 'flex', listStyle: 'none', rightpadding: 10, justifyContent: 'space-between' }}>
         <li><a href="/">Home</a></li>
-        <li><a href="/services" >Chatbot</a></li>   {/* Access props correctly */}
-        <li><a href="/disease">Disease Identification</a></li> {/* Access props correctly */}
-        {/* ... (other links) */}
+        <li><a href="/services" >Chatbot</a></li>
+        <li><a href="/disease">Disease Identification</a></li> 
+        <li><a href="/recommend">Crop Recommendation</a></li>
+        <li><a href="/weather">Weather</a></li>
+        <li><a href="/market">Market</a></li>
+        <li><a href="/#About">About</a></li>
         </ul>
         </div>
       )}

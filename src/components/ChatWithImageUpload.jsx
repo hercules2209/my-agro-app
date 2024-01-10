@@ -7,7 +7,8 @@ const ChatWithImageUpload = () => {
   const [previewSource, setPreviewSource] = useState();
   const [showUploadSection, setShowUploadSection] = useState(true);
   const [response, setResponse] = useState('');
-  const [showSubmitButton, setShowSubmitButton] = useState(false);
+  const [ setShowSubmitButton] = useState(false);
+
 
   const onDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
@@ -65,10 +66,10 @@ const ChatWithImageUpload = () => {
         {showUploadSection && (
           <div id="Upload">
             <h1 style={{ alignContent: 'center', textAlign: 'center' }}>Image Upload</h1>
-            <div {...getRootProps()} className="dropzone" style={{ borderRadius:"20px", height: '300px', justifyContent: 'center', textAlign: 'center', display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <div {...getRootProps()} className="dropzone-container" >
               <input {...getInputProps()} />
-              <p>Drag 'n' drop some files here, or click to select files</p>
-            </div>
+                <p className="dropzone-message"> Click or drag a photo to diagnose plant issues </p>
+              </div>
           </div>
         )}
 

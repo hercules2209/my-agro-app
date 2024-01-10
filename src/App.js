@@ -17,8 +17,11 @@ function App() {
         <source src={videoSource} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-        <Navbar />
-        <AppRouter />
+      
+      <div className="overlay"></div> {/* used for background blur */}
+
+      <Navbar />
+      <AppRouter />
 
           
         
