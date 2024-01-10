@@ -1,19 +1,31 @@
 import React, { useState } from 'react';
+import AppRouter from './Approuter';
+import './App.css';
+import './components/Navbar.css';
 import Navbar from './components/Navbar';
-import ImageUpload from './components/ImageUpload';
-import Chat from './components/Chat';
+import videoSource from './assets/Background.mp4'; // replace with your actual video path
+
 
 function App() {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [showSubmitButton, setShowSubmitButton] = useState(false);
 
- return (
-   <div className="App">
-       <Navbar />
-       <h1 style={{alignContent:"center", textAlign:"center"}}>Image Upload</h1>
-       <ImageUpload setSelectedFile={setSelectedFile} />
-       <Chat selectedFile={selectedFile} />
-   </div>
- );
+  return (
+    
+      <div className="App">
+      <video autoPlay loop muted id="video-background">
+        <source src={videoSource} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+        <Navbar />
+        <AppRouter />
+
+          
+        
+
+      </div>
+    
+  );
 }
 
 export default App;
