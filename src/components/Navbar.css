@@ -1,4 +1,6 @@
-
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 nav {
   background-color: #21d840; /* Set background color */
   padding: 10px; /* Add padding for better spacing */

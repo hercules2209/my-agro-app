@@ -42,7 +42,7 @@ const ChatWithImageUpload = () => {
     const formData = new FormData();
     formData.append('file', selectedFile);
 
-    const result = await fetch('http://localhost:3000/predict', {
+    const result = await fetch('http://localhost:5000/predict', {
       method: 'POST',
       body: formData,
     });
