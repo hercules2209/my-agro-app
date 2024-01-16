@@ -2,6 +2,8 @@ const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const multer = require('multer');
+const upload = multer();
 
 const app = express();
 
@@ -52,22 +54,24 @@ app.all('/chat', async (req, res) => {
   }
 });
 
+
 // Route for crop recommendations with logging
-app.post('/recommend', async (req, res) => {
-  console.log('Received crop recommendation request:', req.body);
-  try {
-    const response = await axios.post('https://us-central1-diseasedet.cloudfunctions.net/recommend', req.body, {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-    });
-    console.log('Forwarding crop recommendation response:', response.data);
-    res.status(response.status).send(response.data);
-  } catch (error) {
-    console.error('Error during crop recommendation request:', error);
-    res.status(500).send(error.message);
-  }
+app.post('/recommend', upload.any(), async (req, res) => {
+    console.log('Received crop recommendation request:', req.body);
+    try {
+      const response = await axios.post('https://us-central1-diseasedet.cloudfunctions.net/recommend', req.files, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log('Forwarding crop recommendation response:', response.data);
+      res.status(response.status).send(response.data);
+    } catch (error) {
+      console.error('Error during crop recommendation request:', error);
+      res.status(500).send(error.message);
+    }
 });
+
 
 app.listen(5000, () => {
   console.log('Proxy server listening on port 5000');

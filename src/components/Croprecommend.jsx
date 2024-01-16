@@ -1,14 +1,15 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import './Croprecommend.css';
+import "./Croprecommend.css"
 
-function Croprecommend() {
+function CropRecommendForm() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append('country', data.country);
     formData.append('state', data.state);
     formData.append('district', data.district);
+    formData.append('zipcode', parseInt(data.zipcode));
     formData.append('phLevel', parseFloat(data.phLevel));
     formData.append('potassiumLevel', parseFloat(data.potassiumLevel));
     formData.append('nitrogenLevel', parseFloat(data.nitrogenLevel));
@@ -28,60 +29,91 @@ function Croprecommend() {
   };
 
   return (
-    <div className="main">
-      <div id="backRect">
-        <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto">
-          {/* Add fields for location */}
-          <div className="grid md:grid-cols-3 md:gap-6">
-            <div className="relative z-0 w-full mb-5 group">
-              <input {...register('country', { required: true })} type="text" name="country" id="country" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-              <label htmlFor="country" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Country</label>
-              {errors.country && <p>This field is required</p>}
-            </div>
-            <div className="relative z-0 w-full mb-5 group">
-              <input {...register('state', { required: true })} type="text" name="state" id="state" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-              <label htmlFor="state" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">State</label>
-              {errors.state && <p>This field is required</p>}
-            </div>
-            <div className="relative z-0 w-full mb-5 group">
-              <input {...register('district', { required: true })} type="text" name="district" id="district" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-              <label htmlFor="district" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">District</label>
-              {errors.district && <p>This field is required</p>}
-            </div>
+    <div className="min-h-screen p-6 flex items-center justify-center">
+      <div className="container max-w-screen-lg mx-auto">
+        <div>
+          <h2 className="font-semibold text-xl text-gray-600">Crop Recommendation Form</h2>
+          <p className="text-gray-500 mb-6">Please fill out all the fields regarding the location and soil data.</p>
+
+          <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+              <div className="text-gray-600">
+                <p className="font-medium text-lg">Location Details</p>
+                <p>Please provide the location details for the crop recommendation.</p>
+              </div>
+
+              <div className="lg:col-span-2">
+                <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+                  {/* Location Inputs */}
+                  <div className="md:col-span-5">
+                    <label htmlFor="country">Country</label>
+                    <input type="text" name="country" id="country" {...register('country', { required: true })} className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                    {errors.country && <p className="text-red-600">Country is required.</p>}
+                  </div>
+
+                  <div className="md:col-span-5">
+                    <label htmlFor="state">State / Province</label>
+                    <input type="text" name="state" id="state" {...register('state', { required: true })} className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                    {errors.state && <p className="text-red-600">State is required.</p>}
+                  </div>
+
+                  <div className="md:col-span-5">
+                    <label htmlFor="district">District</label>
+                    <input type="text" name="district" id="district" {...register('district', { required: true })} className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                    {errors.district && <p className="text-red-600">District is required.</p>}
+                  </div>
+
+                  <div className="md:col-span-5">
+                    <label htmlFor="zipcode">Zipcode</label>
+                    <input type="text" name="zipcode" id="zipcode" {...register('zipcode', { required: true, pattern: /^[1-9]{1}[0-9]{5}$/ })} className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                    {errors.zipcode && <p className="text-red-600">Zipcode is required and must be a valid format.</p>}
+                  </div>
+                  </div>
+                  </div>
+                  
+                  {/* Soil Parameters Heading */}
+                  
+                  <div className="text-gray-600">
+                    <p className="font-medium text-lg">Soil Parameters</p>
+                    <p>Please fill in this information with the soil parameters from your soil health card or any recent soil health checkup for a personalized crop recommendation.</p>
+                    <p>**If you are not a farmer and do not have this information you can get simple soil checkup kits from our marketplace**</p>
+                  </div>
+                  <div className="lg:col-span-2">
+                  <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+                  <div className="md:col-span-5">
+                    <label htmlFor="phLevel">pH Level (0-14)</label>
+                    <input type="number" name="phLevel" id="phLevel" {...register('phLevel', { required: true, min: 0, max: 14 })} className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                    {errors.phLevel && <p className="text-red-600">pH level is required and must be between 0 and 14.</p>}
+                  </div>
+
+                  <div className="md:col-span-5">
+                    <label htmlFor="potassiumLevel">Potassium Level</label>
+                    <input type="number" name="potassiumLevel" id="potassiumLevel" {...register('potassiumLevel', { required: true })} className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                    {errors.potassiumLevel && <p className="text-red-600">Potassium level is required.</p>}
+                  </div>
+
+                  <div className="md:col-span-5">
+                    <label htmlFor="nitrogenLevel">Nitrogen Level</label>
+                    <input type="number" name="nitrogenLevel" id="nitrogenLevel" {...register('nitrogenLevel', { required: true })} className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                    {errors.nitrogenLevel && <p className="text-red-600">Nitrogen level is required.</p>}
+                  </div>
+
+                  <div className="md:col-span-5">
+                    <label htmlFor="hydrogenLevel">Hydrogen Level</label>
+                    <input type="number" name="hydrogenLevel" id="hydrogenLevel" {...register('hydrogenLevel', { required: true })} className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                    {errors.hydrogenLevel && <p className="text-red-600">Hydrogen level is required.</p>}
+                  </div>
+                  </div>
+                  <div className="md:col-span-5 text-right">
+                    <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                </div>
+              </div>
+            </form>
           </div>
-
-          {/* Add fields for soil parameters */}
-          <div className="grid md:grid-cols-2 md:gap-6">
-            <div className="relative z-0 w-full mb-5 group">
-              <input {...register('phLevel', { required: true, pattern: /^[0-9]+(\.[0-9]{1,2})?$/ })} type="text" name="phLevel" id="phLevel" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-              <label htmlFor="phLevel" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">pH Level (0-14)</label>
-              {errors.phLevel && <p>This field is required and must be a valid number</p>}
-            </div>
-            <div className="relative z-0 w-full mb-5 group">
-              <input {...register('potassiumLevel', { required: true, pattern: /^[0-9]+(\.[0-9]{1,2})?$/ })} type="text" name="potassiumLevel" id="potassiumLevel" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-              <label htmlFor="potassiumLevel" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Potassium Level</label>
-              {errors.potassiumLevel && <p>This field is required and must be a valid number</p>}
-            </div>
-            <div className="relative z-0 w-full mb-5 group">
-              <input {...register('nitrogenLevel', { required: true, pattern: /^[0-9]+(\.[0-9]{1,2})?$/ })} type="text" name="nitrogenLevel" id="nitrogenLevel" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-              <label htmlFor="nitrogenLevel" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nitrogen Level</label>
-              {errors.nitrogenLevel && <p>This field is required and must be a valid number</p>}
-            </div>
-            <div className="relative z-0 w-full mb-5 group">
-              <input {...register('hydrogenLevel', { required: true, pattern: /^[0-9]+(\.[0-9]{1,2})?$/ })} type="text" name="hydrogenLevel" id="hydrogenLevel" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-              <label htmlFor="hydrogenLevel" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Hydrogen Level</label>
-              {errors.hydrogenLevel && <p>This field is required and must be a valid number</p>}
-            </div>
-          </div>
-
-          {/* Existing fields */}
-          {/* ... */}
-
-          <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-        </form>
+        </div>
       </div>
     </div>
   );
 }
 
-export default Croprecommend;
+export default CropRecommendForm;
