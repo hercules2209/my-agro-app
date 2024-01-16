@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import "./Croprecommend.css"
 
 function CropRecommendForm() {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const [result, setResult] = useState(""); // State to store the result
+  const [isResultVisible, setIsResultVisible] = useState(false); // State to manage visibility
+
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append('country', data.country);
@@ -24,7 +27,11 @@ function CropRecommendForm() {
       body: formData,
     })
       .then(response => response.json())
-      .then(data => console.log('Recommendation response:', data))
+      .then(data => {
+        console.log('Recommendation response:', data);
+        setResult(JSON.stringify(data, null, 2)); // Store the result in state
+        setIsResultVisible(true); // Show the result box
+      })
       .catch(error => console.error('Error sending recommendation:', error));
   };
 
@@ -112,8 +119,15 @@ function CropRecommendForm() {
           </div>
         </div>
       </div>
+      {isResultVisible && (
+        <div className="result-box bg-gray-100 p-4 rounded">
+          <h3 className="font-semibold text-xl text-gray-600">Recommendation Result</h3>
+          <pre className="text-gray-800">{result}</pre>
+        </div>
+      )}
     </div>
   );
 }
+
 
 export default CropRecommendForm;
