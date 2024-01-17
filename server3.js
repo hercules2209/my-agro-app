@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const multer = require('multer');
 const upload = multer();
-
+const request = require('request');
 const app = express();
 
 // Middleware
@@ -14,18 +14,16 @@ app.use(bodyParser.json());
 
 // Log middleware for general request information
 app.use((req, res, next) => {
-  console.log(`Received ${req.method} request for ${req.url}`);
-  next();
-});
-
-// Log middleware for CORS preflight requests
-app.use((req, res, next) => {
-  if (req.method === 'OPTIONS') {
-    console.log('Handling CORS preflight request');
-    res.sendStatus(200);
-  } else {
-    next();
-  }
+ res.header('Access-Control-Allow-Origin', '*');
+ res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+ res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+ console.log(`Received ${req.method} request for ${req.url}`);
+ if (req.method === 'OPTIONS') {
+   console.log('Handling CORS preflight request');
+   return res.sendStatus(200);
+   
+ }
+ next();
 });
 
 // Route for image predictions with logging
@@ -38,21 +36,9 @@ app.all('/predict', (req, res) => {
 });
 
 // Route for text chat interactions with logging
-app.all('/chat', async (req, res) => {
-  console.log('Received chat request:', req.body);
-  try {
-    const response = await axios.post('https://us-central1-diseasedet.cloudfunctions.net/chat', req.body, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    console.log('Forwarding chat response:', response.data);
-    res.status(response.status).send(response.data);
-  } catch (error) {
-    console.error('Error during chat request:', error);
-    res.status(500).send(error.message);
-  }
-});
+app.all('/chat', (req, res) => {
+  req.pipe(request.post('https://us-central1-diseasedet.cloudfunctions.net/chat')).pipe(res);
+ });
 
 
 // Route for crop recommendations with logging

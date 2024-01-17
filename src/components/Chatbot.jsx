@@ -9,7 +9,7 @@ import rocket from '../assets/rocket.svg';
 import sendBtn from '../assets/send.svg';
 import userIcon from '../assets/user-icon.jpeg';
 import gptImgLogo from '../assets/chatgptLogo.svg';
-// import Navbar from './Navbar';
+
 function Chatbot() {
   const msgEnd=useRef(null);
   const [input,setInput] = useState('');
@@ -21,6 +21,7 @@ function Chatbot() {
   useEffect(()=>{
     msgEnd.current.scrollIntoView();
    },[messages]); 
+  const corsProxyUrl = 'http://localhost:5000';
   const handleSend = async() => {
     const text=input;
     setInput((prevInput)=>'');
@@ -29,7 +30,7 @@ function Chatbot() {
       {text, isBot: false}
     ]);
     try{
-      const response = await fetch('http://localhost:3000/chat',{
+      const response = await fetch(`${corsProxyUrl}/chat`,{
         method:'POST',
         headers:{
           'Content-Type':'application/json'
@@ -37,6 +38,7 @@ function Chatbot() {
         body:JSON.stringify({query: text}),
 
       });
+      console.log('Received Request',response)
       const responseData = await response.json();
     
       setMessages((prevMessages)=>[
@@ -59,7 +61,7 @@ function Chatbot() {
       {text, isBot: false}
     ]);
     try{
-      const response = await fetch('http://localhost:3000/chat',{
+      const response = await fetch(`${corsProxyUrl}/chat`,{
         method:'POST',
         headers:{
           'Content-Type':'application/json'
