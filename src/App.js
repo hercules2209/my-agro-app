@@ -20,8 +20,12 @@ function App() {
       
       <div className="overlay"></div> {/* used for background blur */}
 
-      <Navbar />
-      <AppRouter />
+      {/* <div className="navbar-container"> */}
+        <Navbar />
+      {/* </div> */}
+      {/* <div className="main-container"> */}
+        <AppRouter />
+      {/* </div> */}
 
           
         

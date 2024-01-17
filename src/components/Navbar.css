@@ -6,6 +6,8 @@ nav {
   padding: 10px; /* Add padding for better spacing */
   color: white; /* Set text color */
   width: 100%; /* Ensure navbar takes full width */
+  position:static;
+  top:0;
 }
 
   nav h1 {
