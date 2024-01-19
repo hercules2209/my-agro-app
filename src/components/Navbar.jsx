@@ -31,7 +31,7 @@ function Navbar (){
             <li><a href="/recommend">Crop Recommendation</a></li>
             <li><a href="/weather">Weather</a></li>
             <li><a href="/market">Market</a></li>
-            <li><a href="/#About">About</a></li>
+            <li><a href="/logup">Signup/Login</a></li>
           </ul>
           )}
           
@@ -47,7 +47,7 @@ function Navbar (){
             <li><a href="/recommend">Crop Recommendation</a></li>
             <li><a href="/#News">News</a></li>
             <li><a href="/market">Market</a></li>
-            <li><a href="/#About">About</a></li>
+            <li><a href="/logup">Sign up/ Login</a></li>
           </ul>
         </div>
       )}
