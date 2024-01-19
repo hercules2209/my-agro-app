@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { getAuth, signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import 'tailwindcss/tailwind.css';
-
+import {auth} from '../firebase';
 function Dashboard() {
   const [error, setError] = useState('');
-  const auth = getAuth();
   const currentUser = auth.currentUser; // Get current user directly
   const navigate = useNavigate();
 

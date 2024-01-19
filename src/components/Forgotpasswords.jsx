@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
+import { sendPasswordResetEmail } from 'firebase/auth';
 import { Link } from 'react-router-dom';
 import 'tailwindcss/tailwind.css'; // Import Tailwind CSS
-
+import {auth} from '../firebase';
 function Forgotpassword() {
-  const [email, setEmail] = useState('');
+  const [email,] = useState('');
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const auth = getAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Route, Navigate } from 'react-router-dom';
-import { getAuth } from 'firebase/auth';
+import {auth} from '../firebase';
 
 export default function PrivateRoute({ children, ...rest }) {
-  const auth = getAuth();
   const currentUser = auth.currentUser;
 
   return (

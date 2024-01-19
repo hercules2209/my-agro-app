@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { getAuth, updateEmail, updatePassword } from 'firebase/auth';
+import { updateEmail, updatePassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import 'tailwindcss/tailwind.css'; // Import Tailwind CSS
+import {auth} from '../firebase';
 
 function Updateprofile() {
   const [email] = useState('');
@@ -10,7 +11,6 @@ function Updateprofile() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const auth = getAuth();
   const currentUser = auth.currentUser; // Get current user directly
 
   const handleSubmit = async (e) => {
