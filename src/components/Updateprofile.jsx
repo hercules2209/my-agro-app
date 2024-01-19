@@ -4,8 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import 'tailwindcss/tailwind.css'; // Import Tailwind CSS
 
 function Updateprofile() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email] = useState('');
+  const [password] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -51,7 +51,6 @@ function Updateprofile() {
             <input
               type="email"
               id="email"
-              ref={emailRef}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               required
               defaultValue={currentUser.email}
@@ -64,7 +63,6 @@ function Updateprofile() {
             <input
               type="password"
               id="password"
-              ref={passwordRef}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="Leave blank to keep the same"
             />
@@ -76,7 +74,7 @@ function Updateprofile() {
             <input
               type="password"
               id="password-confirm"
-              ref={passwordConfirmRef}
+
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="Leave blank to keep the same"
             />

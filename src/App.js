@@ -11,10 +11,10 @@ function App() {
   return (
     
       <div className="App">
-      {/* <video autoPlay loop muted id="video-background">
+      <video autoPlay loop muted id="video-background">
         <source src={videoSource} type="video/mp4" />
         Your browser does not support the video tag.
-      </video> */}
+      </video>
       
       <div className="overlay"> {/* used for background blur */}
 
