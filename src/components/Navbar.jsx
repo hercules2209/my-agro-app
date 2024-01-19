@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-const Navbar = () => {
+function Navbar (){
   const isMobile = useMediaQuery({ maxWidth: 920 });
   const [menuVisible, setMenuVisible] = useState(false);
 
@@ -11,6 +11,7 @@ const Navbar = () => {
   };
 
   return (
+    <div className="nav-container">
     <nav>
       {isMobile ? (
         <div>
@@ -37,19 +38,21 @@ const Navbar = () => {
         </div>
       ) : (
         <div>
-          <h1 style={{ textAlign: 'left', marginRight: '10px' }}>Farm App</h1>
-          <ul style={{ display: 'flex', listStyle: 'none', rightpadding: 10, justifyContent: 'space-between' }}>
-            <li><a href="/">Home</a></li>
+          <ul style={{ display: 'flex', listStyle: 'none',justifyContent: 'space-between' }}>
+            <li><a href="/">
+            <img src="../assets/chatgpt.svg" alt="Farm App Logo" />
+              </a></li>
             <li><a href="/services">Chatbot</a></li>
             <li><a href="/disease">Disease Identification</a></li>
             <li><a href="/recommend">Crop Recommendation</a></li>
-            <li><a href="/weather">Weather</a></li>
+            <li><a href="/#News">News</a></li>
             <li><a href="/market">Market</a></li>
             <li><a href="/#About">About</a></li>
           </ul>
         </div>
       )}
     </nav>
+    </div>
   );
 };
 

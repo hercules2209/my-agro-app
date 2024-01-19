@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
+import { GrCloudUpload } from "react-icons/gr";
 import './styles.css';
 
 const ChatWithImageUpload = () => {
@@ -7,7 +8,7 @@ const ChatWithImageUpload = () => {
   const [previewSource, setPreviewSource] = useState();
   const [showUploadSection, setShowUploadSection] = useState(true);
   const [response, setResponse] = useState('');
-  const [ setShowSubmitButton] = useState(false);
+  const [ showSubmitButton,setShowSubmitButton] = useState(false);
 
 
   const onDrop = useCallback((acceptedFiles) => {
@@ -15,6 +16,7 @@ const ChatWithImageUpload = () => {
     setInternalSelectedFile(file);
     previewFile(file);
     setShowUploadSection(false);
+    setShowSubmitButton(true);
   }, []);
 
   const previewFile = (file) => {
@@ -29,6 +31,8 @@ const ChatWithImageUpload = () => {
     setInternalSelectedFile(null);
     setPreviewSource(null);
     setShowUploadSection(true);
+    setShowSubmitButton(false);
+    setResponse('');
   };
 
   const handleImageSubmit = async () => {
@@ -42,7 +46,7 @@ const ChatWithImageUpload = () => {
     const formData = new FormData();
     formData.append('file', selectedFile);
 
-    const result = await fetch('http://localhost:5000/predict', {
+    const result = await fetch('https://us-central1-diseasedet.cloudfunctions.net/predict', {
       method: 'POST',
       body: formData,
     });
@@ -52,7 +56,7 @@ const ChatWithImageUpload = () => {
 
     const details = data.details;
     setResponse(details);
-    setShowSubmitButton(true);
+    setShowSubmitButton(false);
   };
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -65,13 +69,14 @@ const ChatWithImageUpload = () => {
       <div style={{ alignContent: 'center' }}>
         {showUploadSection && (
           <div id="Upload">
-            <h1 style={{ alignContent: 'center', textAlign: 'center' }}>Image Upload</h1>
+            <h1 style={{ alignContent: 'center', textAlign: 'center', fontFamily:'Noto Sans',fontSize:30}}><b>Upload Image</b></h1>
             <div {...getRootProps()} className="dropzone-container" >
               <input {...getInputProps()} />
+                <GrCloudUpload size={300} style={{ color: 'white' }} />
                 <p className="dropzone-message"> Click or drag a photo to diagnose plant issues </p>
               </div>
           </div>
-        )}
+        )} 
 
         {!showUploadSection && (
           <div id="Display">
@@ -90,6 +95,7 @@ const ChatWithImageUpload = () => {
             <button onClick={handleCancel} style={{ marginRight: '10px' }}>
               Cancel
             </button>
+            {showSubmitButton && (
             <button
               style={{
                 padding: '10px 20px',
@@ -104,22 +110,23 @@ const ChatWithImageUpload = () => {
             >
               Submit
             </button>
+            )}
           </div>
         )}
       </div>
 
-      <div id="Chat" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: "10px" }}>
+      {response && <div id="Chat" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: "10px" }}>
         <h1 style={{ marginTop: '20px' }}>Chat</h1>
         <div style={{ border: '1px solid #fff', borderRadius: '20px',display: 'flex', padding: '20px', marginTop: '20px', width: '80%', overflow: 'auto', minHeight: '200px',  backgroundColor:"#F6FFC4"}}>
-          {response && <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+           <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
             <img src="/Avatar.jpeg" alt="Avatar" style={{ borderRadius: '50%', marginRight: '10px', width: '50px', height: '50px' }} />
             <div id style={{ backgroundColor: '#f0f0f0', borderRadius: '20px', padding: '10px', maxWidth: '80%' }}>
               <p style={{ whiteSpace: 'pre-wrap', fontSize: '18px' }}>{response}</p>
             </div>
-          </div>}
+          </div>
         </div>
 
-      </div>
+      </div>}
     </div>
   );
 };

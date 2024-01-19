@@ -1,20 +1,30 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-
-import HomePage from "./components/Home";
-import Chatbot from "./components/Chatbot";
-import ChatWithImageUpload from "./components/ChatWithImageUpload";
-import Croprecommend from "./components/Croprecommend";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Signup from './components/Signup.jsx';
+import Dashboard from './components/Dashboard.jsx';
+import Login from './components/Login.jsx';
+import PrivateRoute from './components/PrivateRoute.js';
+import Forgotpassword from "./components/Forgotpasswords.jsx";
+import UpdateProfile from "./components/Updateprofile.jsx";
+import Chatbot from "./components/Chatbot.jsx";
+import ChatWithImageUpload from "./components/ChatWithImageUpload.jsx";
+import Croprecommend from "./components/Croprecommend.jsx";
+import Home from "./components/Home.jsx";
 
 function AppRouter() {
   return (
-    <Router >
+    <Router>
+      {/* No need for AuthProvider, access auth directly in components */}
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Home />} />
         <Route path="/services" element={<Chatbot />} />
         <Route path="/disease" element={<ChatWithImageUpload />} />
         <Route path="/recommend" element={<Croprecommend />} />
+        <Route path="/Dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+        <Route path="/update-profile" element={<PrivateRoute><UpdateProfile /></PrivateRoute>} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<Forgotpassword />} />
       </Routes>
     </Router>
   );

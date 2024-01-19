@@ -1,47 +1,45 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+.nav-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  position:sticky;
+  top:0;
+  z-index: 999;
+}
 nav {
-  background-color: #21d840; /* Set background color */
+  background-color: rgba(9, 179, 37, 0.38); /* Set background color */
   padding: 10px; /* Add padding for better spacing */
   color: white; /* Set text color */
-  width: 100%; /* Ensure navbar takes full width */
-  position:static;
-  top:0;
+  width: 95%; /* Ensure navbar takes full width */
+  border-radius: 40px;
+  place-items: center;
 }
+  
 
-  nav h1 {
-    margin: 0;
-  }
-  
-  nav select, nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  nav select {
+nav select {
     display: block;
     width: 100%;
     padding: 8px;
     font-size: 16px;
     margin-bottom: 10px; /* Add margin between h1 and select */
-    background-color: #555; /* Set background color for select */
     color: white; /* Set text color for select */
-    border: none;
     border-radius: 5px;
   }
   
-  nav ul {
+ nav ul {
     display: flex;
     justify-content: space-between;
   }
   
-  nav ul li {
+nav ul li {
     margin-right: 10px;
   }
   
-  nav ul li a {
+nav ul li a {
     text-decoration: none;
     color: white;
     padding: 8px;
@@ -49,6 +47,6 @@ nav {
     transition: background-color 0.3s ease; /* Add smooth transition effect */
   }
   
-  nav ul li a:hover {
+nav ul li a:hover {
     background-color: #555; /* Change background color on hover */
   }

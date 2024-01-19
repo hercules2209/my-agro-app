@@ -6,6 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden; /* to remove scrollbars */
+  background: linear-gradient(to right, #00ff00, #ffffff, #00ff00);
+  
 }
 *{
   margin: 0;

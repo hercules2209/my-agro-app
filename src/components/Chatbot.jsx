@@ -21,7 +21,7 @@ function Chatbot() {
   useEffect(()=>{
     msgEnd.current.scrollIntoView();
    },[messages]); 
-  const corsProxyUrl = 'http://localhost:5000';
+  const corsProxyUrl = 'https://us-central1-diseasedet.cloudfunctions.net';
   const handleSend = async() => {
     const text=input;
     setInput((prevInput)=>'');
@@ -30,7 +30,7 @@ function Chatbot() {
       {text, isBot: false}
     ]);
     try{
-      const response = await fetch(`${corsProxyUrl}/chat`,{
+      const response = await fetch(`${corsProxyUrl}/chatbot`,{
         method:'POST',
         headers:{
           'Content-Type':'application/json'
@@ -43,7 +43,7 @@ function Chatbot() {
     
       setMessages((prevMessages)=>[
         ...prevMessages,
-        {text:responseData.details[0], isBot: true},
+        {text:responseData.details, isBot: true},
       ]);
     } catch(error){
       console.error('Error sending message:',error);
@@ -71,7 +71,7 @@ function Chatbot() {
       const responseData = await response.json();
       setMessages((prevMessages)=>[
         ...prevMessages,
-        {text:responseData.details[0], isBot: false},
+        {text:responseData.details, isBot: false},
       ]);
     }catch(error){
       console.error('Error sending message:',error);

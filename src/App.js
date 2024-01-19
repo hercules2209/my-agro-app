@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AppRouter from './Approuter';
 import './App.css';
 import './components/Navbar.css';
@@ -7,18 +7,16 @@ import videoSource from './assets/Background.mp4'; // replace with your actual v
 
 
 function App() {
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [showSubmitButton, setShowSubmitButton] = useState(false);
 
   return (
     
       <div className="App">
-      <video autoPlay loop muted id="video-background">
+      {/* <video autoPlay loop muted id="video-background">
         <source src={videoSource} type="video/mp4" />
         Your browser does not support the video tag.
-      </video>
+      </video> */}
       
-      <div className="overlay"></div> {/* used for background blur */}
+      <div className="overlay"> {/* used for background blur */}
 
       {/* <div className="navbar-container"> */}
         <Navbar />
@@ -29,7 +27,7 @@ function App() {
 
           
         
-
+      </div>
       </div>
     
   );
