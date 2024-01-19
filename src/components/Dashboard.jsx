@@ -10,7 +10,7 @@ function Dashboard() {
 
   const handleLogout = async () => {
     setError('');
-
+    
     try {
       await signOut(auth); // Use signOut from Firebase
       navigate('/login');

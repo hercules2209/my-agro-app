@@ -1,20 +1,11 @@
+// PrivateRoute.js
 import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
-import {auth} from '../firebase';
+import { Navigate } from 'react-router-dom';
+import { auth } from '../firebase';
 
-export default function PrivateRoute({ children, ...rest }) {
+const PrivateRoute = ({ children }) => {
   const currentUser = auth.currentUser;
+  return currentUser ? children : <Navigate to="/login" replace />;
+};
 
-  return (
-    <Route
-      {...rest}
-      render={({ location }) => {
-        return currentUser ? (
-          children
-        ) : (
-          <Navigate to="/login" state={{ from: location }} replace />
-        );
-      }}
-    />
-  );
-}
+export default PrivateRoute;

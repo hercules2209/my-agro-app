@@ -5,8 +5,8 @@ import 'tailwindcss/tailwind.css'; // Import Tailwind CSS
 import {auth} from '../firebase';
 
 function Updateprofile() {
-  const [email] = useState('');
-  const [password] = useState('');
+  const [email,setEmail] = useState('');
+  const [password,setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -52,6 +52,7 @@ function Updateprofile() {
               type="email"
               id="email"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              onChange={(e) => setEmail(e.target.value)}
               required
               defaultValue={currentUser.email}
             />
@@ -64,6 +65,7 @@ function Updateprofile() {
               type="password"
               id="password"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              onChange={(e)=>setPassword(e.target.value)}
               placeholder="Leave blank to keep the same"
             />
           </div>

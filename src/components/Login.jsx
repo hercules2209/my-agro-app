@@ -5,8 +5,8 @@ import 'tailwindcss/tailwind.css'; // Import Tailwind CSS
 import {auth} from '../firebase';
 
 function Login() {
-  const [email] = useState('');
-  const [password] = useState('');
+  const [email,setEmail] = useState('');
+  const [password,setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ function Login() {
       setError('');
       setLoading(true);
       await signInWithEmailAndPassword(auth, email, password); // Use Firebase's signInWithEmailAndPassword
-      navigate('/'); // Redirect to home page upon successful login
+      navigate('/dashboard'); // Redirect to home page upon successful login
     } catch (error) {
       setError(error.message); // Display a more specific error message
     } finally {
@@ -40,6 +40,7 @@ function Login() {
               type="email"
               id="email"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -51,6 +52,7 @@ function Login() {
               type="password"
               id="password"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>

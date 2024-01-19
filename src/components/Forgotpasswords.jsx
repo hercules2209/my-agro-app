@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import 'tailwindcss/tailwind.css'; // Import Tailwind CSS
 import {auth} from '../firebase';
 function Forgotpassword() {
-  const [email,] = useState('');
+  const [email,setEmail] = useState('');
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
@@ -41,6 +41,7 @@ function Forgotpassword() {
               type="email"
               id="email"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>

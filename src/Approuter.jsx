@@ -10,7 +10,7 @@ import Chatbot from "./components/Chatbot.jsx";
 import ChatWithImageUpload from "./components/ChatWithImageUpload.jsx";
 import Croprecommend from "./components/Croprecommend.jsx";
 import Home from "./components/Home.jsx";
-
+import Logup from "./components/Logup.jsx";
 function AppRouter() {
   return (
     <Router>
@@ -20,10 +20,11 @@ function AppRouter() {
         <Route path="/services" element={<Chatbot />} />
         <Route path="/disease" element={<ChatWithImageUpload />} />
         <Route path="/recommend" element={<Croprecommend />} />
-        <Route path="/Dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+        <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
         <Route path="/update-profile" element={<PrivateRoute><UpdateProfile /></PrivateRoute>} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/logup" element={<Logup/>} />
         <Route path="/forgot-password" element={<Forgotpassword />} />
       </Routes>
     </Router>

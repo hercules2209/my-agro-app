@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import 'tailwindcss/tailwind.css'; // Import Tailwind CSS
-
+import {auth} from '../firebase';
 function Signup() {
-  const [email, ] = useState('');
-  const [password,] = useState('');
+  const [email, setEmail] = useState('');
+  const [password,setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const auth = getAuth();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+
 
     try {
       setError('');
@@ -42,7 +41,8 @@ function Signup() {
               type="email"
               id="email"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              required
+              onChange={(e) => setEmail(e.target.value)}r
+              equired
             />
           </div>
           <div className="mb-4">
@@ -53,6 +53,7 @@ function Signup() {
               type="password"
               id="password"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
