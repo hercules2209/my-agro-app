@@ -54,7 +54,7 @@ return (
               <h3 className="font-medium text-lg">Location Details</h3>
               <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2"> {/* Use 2 columns on medium and up */}
                 {/* Location Inputs */}
-      <div className="md:col-span-5">
+                  <div className="md:col-span-5">
                     <label htmlFor="country">Country</label>
                     <input type="text" name="country" id="country" {...register('country', { required: true })} className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
                     {errors.country && <p className="text-red-600">Country is required.</p>}
