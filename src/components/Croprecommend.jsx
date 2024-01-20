@@ -112,7 +112,7 @@ return (
                   </div>
               </div>	
             </div>
-            <div className="flex justify-end gap-4 py-4"> {/* Right-align buttons for smaller screens */}
+            <div style={{width:"100%", }} > {/* className="flex justify-end gap-4 py-4" */}
               <input type="reset" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" />
               <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
             </div>            
