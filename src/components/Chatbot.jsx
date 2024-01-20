@@ -79,7 +79,7 @@ function Chatbot() {
   };
 
   return (
-    <div className="Main">
+    <div className="Main" style={{ backgroundColor:"rgb(28,30,58)",}}>
       <div className='sideBar'>
 
         <div className='upperSide'>

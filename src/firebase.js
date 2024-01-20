@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from 'firebase/auth'
-
+import { getAuth } from 'firebase/auth';
+import { browserSessionPersistence } from "firebase/auth";
+import { getStorage } from 'firebase/storage'; // Import getStorage
 const firebaseConfig = {
   apiKey: "AIzaSyArmxFwn3T2FGtMzyr065oF4MfehjVrTLw",
   authDomain: "diseasedet.firebaseapp.com",
@@ -12,7 +13,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+await auth.setPersistence(browserSessionPersistence);
+const storage = getStorage(app); // Initialize Firebase Storage
 
-const auth = getAuth(app)
-export { app, auth }
-
+export { app, auth, storage }; // Export storage

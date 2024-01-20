@@ -1,0 +1,190 @@
+.scroll-menu{
+    height: 450px;
+    width: 100%;
+    margin: 0px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(9, calc(300px));
+    grid-template-rows: minmax(150px, 1fr);
+    gap :20px;
+    padding-top: 10px;
+    /* background-color: ghostwhite; */
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.section-head{
+    h1{
+        margin-top: 20px;
+        padding-left: 40px;
+        display: flex;
+        justify-content: flex-start;
+        font-size: 2rem;
+    }
+}
+.market-main{
+    overflow-x: hidden;
+    width: 100%;
+}
+/* .app {
+    display: grid;
+    grid-template-columns: 20px 1fr 20px;
+  }.app > * {
+    grid-column: 2 / -2;
+  }.app > .full {
+    grid-column: 1 / -1;
+  } */
+
+/* @media (min-width: 750px) {
+    .main{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1000px) {
+    .main{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (min-width: 1200px) {
+    .main{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media (min-width: 1500px) {
+    .main{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+} */
+
+.cart{
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 60px;
+    background-color: bisque;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right:30px;
+    img{
+        height: 40px;
+        width: 40px;
+        margin-left: 20px;
+    };
+    button{
+        /* border: solid brown 2px; */
+        padding: 5px 10px 5px 10px;
+        border-radius: 5px;
+        color: rgb(85, 65, 65);
+    }
+    button:hover{
+        color: aliceblue;
+        background: rgb(85, 65, 65);
+        transition: 0.3s ease;
+    }
+}
+
+.card{
+    margin: 20px;
+    border: solid rgb(184, 184, 184) 1px;
+    /* padding: 10px; */
+    border-radius: 5px;
+    
+    height: 400px;
+    width: 300px;
+    background-color: rgb(250, 255, 249);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: hidden;
+    .text-info{
+        padding: 20px;
+        flex-direction: column;
+        h2{
+            display:flex;
+            justify-content: first baseline;
+            font-size: large;
+            color: black
+
+        };
+        p{
+            display:flex;
+            justify-content: first baseline;
+            flex-wrap: wrap;
+        };
+        button{
+            margin-top: 30px;
+            padding: 5px 10px 5px 10px;
+            border: solid rgb(73, 90, 71) 2px;
+            border-radius: 5px;
+            font-size: 1rem;
+            color:rgb(73, 90, 71) 2px;
+            border-radius: 5px; 
+            ;
+            
+        };
+        button:hover{
+            color: aliceblue;
+            background: rgb(73, 90, 71) 2px;
+            transition: 0.3s ease;
+        }
+    }
+    img{
+        height: 50%;
+        width: 100%;
+        /* border-radius: 10px */
+    };
+    
+    a:hover{
+        color: rgb(91, 122, 88);
+        transition: 0.3s ease;
+    }
+}
+.sidebar {
+    /* padding-left: 10px; */
+    position: absolute;
+    left: calc(-50vw - 10px);
+    height: 100vh;
+    width: 50vw;
+    transition: left 0.3s ease-in-out;
+    background-color: bisque;
+    z-index: 10;
+    /* display:none; */
+    z-index: 999;
+    backdrop-filter: blur(10px);
+    /* border: solid 1px gray; */
+    .item{
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        padding: 10px;
+        background-color: rgb(255, 255, 255);
+        margin: 10px;
+        align-items: center;
+        border-radius: 5px; 
+    };
+    .quantity-dial{
+        display: flex;
+        flex-direction: row;
+    }
+  }
+  .sidebar.open {
+    display: block;
+    left: 0;
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    box-shadow: rgb(196, 193, 193) 2px 2px 2px 2px;
+    
+  }
+
+  /* .market-overlay{
+    height: 100vh;
+    width: 100vw;
+  }
+  .market-overlay.on{
+    background-color: black;
+    z-index: 90;
+  }
+  .market-overlay.off{
+    z-index: -90;
+    opacity: 0%;
+  } */

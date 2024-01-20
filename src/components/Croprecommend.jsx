@@ -52,6 +52,8 @@ return (
             {/* Location Details */}
             <div className="bg-gray-50 p-4 rounded-lg mb-4">
               <h3 className="font-medium text-lg">Location Details</h3>
+              <p className="mb-4">Please enter your location details</p>
+              <p className="mb-4">**Please ensure that you are providing accurate zipcode. If you do not know your Zipcode you can check it at<a className="weblink" href="https://worldpostalcode.com/" target="_blank">this link</a> **</p>
               <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-2"> {/* Use 2 columns on medium and up */}
                 {/* Location Inputs */}
                   <div className="md:col-span-5">

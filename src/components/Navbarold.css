@@ -1,0 +1,74 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+.nav-container{
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin: 0px;
+  position:sticky;
+  top:0;
+  z-index: 999;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+nav {
+  background-color: rgba(66, 54, 54); /* Set background color */
+  padding: 10px; /* Add padding for better spacing */
+  color: white; /* Set text color */
+  width: 100%; /* Ensure navbar takes full width */
+  border-radius: 0px;
+  place-items: center;
+  animation-timing-function: ease-in-out;
+}
+  
+
+nav select {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 10px; /* Add margin between h1 and select */
+    color: white; /* Set text color for select */
+    border-radius: 5px;
+    animation-timing-function: ease-in-out;
+  }
+  
+ nav ul {
+    display: flex;
+    /* justify-content: space-between; */
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    transition: top 0.9s ease-in-out;
+  }
+  
+nav ul li {
+    margin-right: 10px;
+  }
+  
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    transition: color 0.3s ease; /* Add smooth transition effect */
+  }
+
+.toggle-off{
+  display: none;
+}
+.toggle-on{
+  display: flex;
+}
+  
+nav ul li a:hover {
+  color: rgb(196, 159, 159);  
+  background-color: #555;
+  }
+
+:active{
+  color: rgb(196, 159, 159); 
+}

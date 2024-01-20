@@ -6,21 +6,38 @@ import {auth} from '../firebase';
 function Signup() {
   const [email, setEmail] = useState('');
   const [password,setPassword] = useState('');
+  const [refPassword,setRefPassword]= useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-
+  
     try {
       setError('');
       setLoading(true);
+      if (password !== refPassword) {
+        throw new Error('Passwords do not match'); // Throw a custom error if passwords don't match
+      }
       await createUserWithEmailAndPassword(auth, email, password);
-      navigate('/'); // Redirect to home page after successful signup
+      navigate('/dashboard'); // Redirect to dashboard page upon successful signup
+      window.location.reload(); // Reload the page after successful signup
     } catch (error) {
-      setError(error.message); // Display a more specific error message
+      let errorMessage;
+      switch (error.code) {
+        case 'auth/weak-password':
+          errorMessage = 'Password should be at least 6 characters';
+          break;
+        case 'auth/email-already-in-use':
+          errorMessage = 'Email already in use';
+          break;
+        default:
+          errorMessage = error.message;
+      }
+      setError(errorMessage); // Display the error message
     } finally {
       setLoading(false);
     }
@@ -65,6 +82,7 @@ function Signup() {
               type="password"
               id="password-confirm"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              onChange={(e) => setRefPassword(e.target.value)}
               required
             />
           </div>
@@ -84,3 +102,4 @@ function Signup() {
   );
 }
 export default Signup;
+  

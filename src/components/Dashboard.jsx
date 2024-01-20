@@ -1,36 +1,53 @@
-import React, { useState } from 'react';
+// Updated code
+import React, { useState,useEffect } from 'react';
 import { signOut } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
-import 'tailwindcss/tailwind.css';
-import {auth} from '../firebase';
+import './Dashboard.css'; // Import the CSS file
+import {auth,storage} from '../firebase';
 function Dashboard() {
   const [error, setError] = useState('');
+  const [imagePreview, setImagePreview] = useState(null); // State to store the image preview URL
+  const defaultPhotoUrl = "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"; // Default profile photo URL
   const currentUser = auth.currentUser; // Get current user directly
   const navigate = useNavigate();
+  useEffect(() => {
+    if (currentUser.photoURL) {
+      setImagePreview(currentUser.photoURL);
+    } else {
+      setImagePreview(defaultPhotoUrl); // Use default image if no profile photo is set
+    }
+  }, [currentUser.photoURL]);
 
   const handleLogout = async () => {
     setError('');
-    
+  
     try {
       await signOut(auth); // Use signOut from Firebase
-      navigate('/login');
+      window.location.reload()  
+      navigate('/logup');
     } catch (error) {
       setError('Failed to log out');
     }
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="bg-white p-4 rounded-lg shadow-md">
-        <h2 className="text-center text-2xl font-medium mb-4">Profile</h2>
-        {error && <div className="bg-red-500 text-white p-4 rounded-lg mb-4">{error}</div>}
-        <p className="mb-4"><strong>Email:</strong> {currentUser.email}</p>
-        <Link to="/update-profile" className="bg-blue-500 text-white px-4 py-2 rounded font-medium w-full">
+    <div className="dashboard-container">
+      <div className="dashboard-card">
+        <h2 className="dashboard-title">Profile</h2>
+        {error && <div className="dashboard-error">{error}</div>}
+        <div className="dashboard-profile">
+          <div className="dashboard-avatar">
+            <img src={imagePreview} alt="Profile" className="dashboard-image" />
+          </div>
+        </div>
+        <p className="dashboard-name"><strong>{currentUser.displayName}</strong></p>
+        <p className="dashboard-email"><strong>Email:</strong> {currentUser.email}</p>
+        <Link to="/update-profile" className="dashboard-button">
           Update Profile
         </Link>
       </div>
-      <div className="text-center mt-4">
-        <button className="text-blue-600 hover:underline" onClick={handleLogout}>
+      <div className="dashboard-logout">
+        <button className="dashboard-link" onClick={handleLogout}>
           Log Out
         </button>
       </div>

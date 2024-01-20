@@ -14,7 +14,7 @@ a {
     transition: background-color 0.3s ease; /* Add smooth transition effect */
   }
   
-a:hover {
-    background-color: rgba(0, 255, 255, 0.748);
+.weblink:hover {
+    color: rgb(72, 166, 166)
   }
 

@@ -6,6 +6,10 @@ import './Imageslider.css';
 function Imageslider() {
   const slides = [
     {
+      url: require('../assets/images/slider1.png')
+
+    },
+    {
       url: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80',
     },
     {
@@ -21,9 +25,6 @@ function Imageslider() {
     {
       url: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80',
     },
-    {
-      url: require('../assets/images/jungle2.png')
-    }
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -45,10 +46,12 @@ function Imageslider() {
   };
 
   return (
-    <div className='max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group'>
+    <div className='h-[780px] w-full m-auto  relative group'>
+      {/* max-w-[1400px] px-4 */}
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
+        className='w-full h-full bg-center bg-cover duration-500 shadow-2xl'
+        // rounded-2xl
       ></div>
       {/* Left Arrow */}
       <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
