@@ -61,7 +61,7 @@ function MarketPlace() {
                     rating={item.rating}
                     addItem={addItem}
                     enhance={toggleEnhanced}
-                    // desc={item.desc}
+                    desc={item.desc}
                 />
                 ))}
             </div>
@@ -74,7 +74,7 @@ function MarketPlace() {
                     rating={item.rating}
                     addItem={addItem}
                     enhance={toggleEnhanced}
-                    // desc={item.desc}
+                    desc={item.desc}
                 />
                 ))}
             </div>
@@ -87,7 +87,7 @@ function MarketPlace() {
                     rating={item.rating}
                     addItem={addItem}
                     enhance={toggleEnhanced}
-                    // desc={item.desc}
+                    desc={item.desc}
                 />
                 ))}
             </div>

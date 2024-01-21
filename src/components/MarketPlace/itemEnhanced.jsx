@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { IoIosClose } from "react-icons/io";
-
+import { Navigate } from 'react-router-dom';
 function ItemEnhanced(props){
+
     return <div className='item-enhanced'>
         <div className='left'>
         <IoIosClose className='close-button' onClick={()=>{props.close({})}}/>
@@ -14,7 +15,7 @@ function ItemEnhanced(props){
             </div>
             <div className='button-group'>
                 <button className='add-cart' onClick={()=>props.addItem(props.title,props.image)}>Add to Cart</button>
-                <button className="buy-now">Buy Now</button>
+                <button className="buy-now" ><a href='/comingsoon'>Buy Now</a></button>
             </div>
         </div>
     </div>

@@ -11,9 +11,11 @@
 	import Croprecommend from "./Croprecommend.jsx";
 	import Home from "./Home.jsx";
 	import Loginsignup from "./Loginsignup.jsx";
-	import './Navbar.css'
+	import Comingsoon from "./Comingsoon.jsx"
 	import MarketPlace from "./MarketPlace/MarketPlace.jsx";
 	import { auth} from '../firebase'; 
+	import './Navbar.css'
+
 	function Navbar() {
 		const [loggedIn,setLoggedIn]=useState(false);
 		const [imagePreview, setImagePreview] = useState(null); // State to store the image preview URL
@@ -40,14 +42,14 @@
 					{!isMobile &&
 					<div  style={{ display:"flex", background: "black", padding: "5px 0 5px 5px", fontSize: "20px", alignItems: "center",    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}>
 						<div style={{ margin: "10px" }}>
-							<NavLink to="/" className={"Home"} style={({ isActive }) => ({color: isActive ? "greenyellow": "white",})}> Farm App </NavLink>
+							<NavLink to="/" className={"Home"} style={({ isActive }) => ({color: isActive ? "greenyellow": "white",})}> Agrofy </NavLink>
 						</div>
 						<div className='droplinks' style={{display:"flex", flexDirection:"row"}}>
 						<div style={{ margin: "10px" }}>
 							<NavLink to="/services" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white",})}> Chatbot </NavLink>
 						</div>
 						<div style={{ margin: "10px" }}>
-							<NavLink to="/disease" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white",})}> Services </NavLink>
+							<NavLink to="/disease" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white",})}> Detection </NavLink>
 						</div>
 						<div style={{ margin: "10px" }}>
 							<NavLink to="/recommend" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white", })}> Crop Recommendation </NavLink>
@@ -102,7 +104,7 @@
 							<NavLink to="/services" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white",})}> Chatbot </NavLink>
 						</div>
 						<div style={{ margin: "10px" }}>
-							<NavLink to="/disease" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white",})}> Services </NavLink>
+							<NavLink to="/disease" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white",})}> Detection </NavLink>
 						</div>
 						<div style={{ margin: "10px" }}>
 							<NavLink to="/recommend" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white", })}> Crop Recommendation </NavLink>
@@ -125,6 +127,7 @@
 						<Route exact path="/update-profile" element={<PrivateRoute><UpdateProfile /></PrivateRoute>} />
 						<Route exact path="/loginsignup" element={<Loginsignup/>} />
 						<Route exact path="/forgot-password" element={<Forgotpassword />} />
+						<Route exact path="/comingsoon" element={<Comingsoon />} />
 					</Routes>
 				</BrowserRouter>
 			</>

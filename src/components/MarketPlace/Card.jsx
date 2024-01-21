@@ -7,7 +7,7 @@ function Card(props) {
       <div className='card'>
         <img src={props.image} alt="hello" onClick={()=>props.enhance(obj)}></img>
         <div className='text-info'>
-            <a onClick={()=>props.enhance(obj)}><h2 className='item-name'>{props.name}</h2></a>
+            <a onClick={()=>props.enhance(obj)}><h2>{props.name}</h2></a>
             {/* <p>{props.desc}</p> */}
             <p>⭐ {props.rating}/5</p>
             <button onClick={()=>props.addItem(props.name,props.image)}>Add to Cart</button>

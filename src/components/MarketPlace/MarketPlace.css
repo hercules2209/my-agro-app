@@ -90,9 +90,7 @@
     border: solid rgb(184, 184, 184) 1px;
     /* padding: 10px; */
     border-radius: 5px;
-    .item-name{
-        color:black
-    }
+
     height: 400px;
     width: 300px;
     background-color: rgb(250, 255, 249);
@@ -102,11 +100,16 @@
         padding: 20px;
         flex-direction: column;
         h2{
+            color: black;
             display:flex;
             justify-content: first baseline;
             font-size: large;
 
         };
+        h2:hover{
+            color: rgb(0, 175, 175);
+            transition: 0.3s ease;
+        }
         p{
             display:flex;
             justify-content: first baseline;
@@ -143,7 +146,7 @@
     position: absolute;;
     left: calc(-500px - 10px);
     height: 100vh;
-    width: 500px;
+    width: min(500px,100%);
     transition: left 0.3s ease-in-out;
     background-color: bisque;
     z-index: 10;
@@ -160,6 +163,18 @@
         padding-left: 20px;
         padding-right: 20px;
         align-items: center;
+        .my-cart{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .back-arrow{
+                margin-right: 10px;
+                border-radius: 100px;
+            }
+            .back-arrow:hover{
+                background-color: rgb(190, 170, 144);
+            }
+        }
         button{
             padding: 5px 10px 5px 10px;
             border: solid rgb(73, 90, 71) 2px;
@@ -296,11 +311,12 @@
     }
     border: solid black 1px;
 }  
-@media (max-width : 1000px) {
+@media (max-width : 1200px) {
     .item-enhanced{
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr;
         height: 600px;
+        width: 80vw;
         padding: 10px;
         .item-image{
             height: 200px;
@@ -313,6 +329,18 @@
             }
         .right{
             margin-top: 0px;
+        }
+    }
+}
+
+@media (max-width : 700px){
+    .item-enhanced{
+        height: 70vh;
+        width:90vw;
+        grid-template-columns: 1fr;
+        .button-group{
+            padding-top: 0px;
+            flex-direction: column;
         }
     }
 }

@@ -39,11 +39,12 @@ function CropRecommendForm() {
   };
 
 return (
+  <div className="">
   <div className="min-h-screen flex items-center justify-center">
     {/* Form Section */}
     {!isResultVisible && (
       <div className="container mx-auto"> {/* Remove max-w-screen-lg for full width on smaller screens */}
-        <div className="flex flex-col items-center justify-center py-4">
+        <div className="flex mainbox  flex-col items-center justify-center py-4">
           <h2 className="font-semibold text-xl  text-gray-900">Crop Recommendation Form</h2>
           <p className="text-gray-700 mb-6 w-full">Please fill out all the fields regarding the location and soil data.</p>
         </div>
@@ -142,6 +143,7 @@ return (
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 }
