@@ -15,3 +15,9 @@
         margin-left: 1rem;
     }
 }
+.logo{
+    height: 2rem;
+    width: 2rem;
+    border-radius:100px;
+    margin-left: 1rem;
+}

@@ -5,6 +5,10 @@
   import { useMediaQuery } from 'react-responsive';
   import Accordion from './Accordion';
   import { accordionData } from './accordianData.js';
+  import { FaFacebook } from "react-icons/fa";
+  import { GrInstagram } from "react-icons/gr";
+  import { FaXTwitter } from "react-icons/fa6";
+  import { IoLogoLinkedin } from "react-icons/io5";
   function Home() {
     const isMedia = useMediaQuery({ maxWidth: 920 });
 		const [menuFlex,setMenuFlex] = useState(false);
@@ -47,7 +51,7 @@
             </div>
           </div>
           <div className="News">
-            
+
           </div>
           <div className="FAQ" style={{display:"grid", flexDirection:"row",alignContent:"center", justifyContent:"center", gridTemplateColumns:isMedia ? "1fr" : "1fr 1fr" }}>
 
@@ -66,18 +70,41 @@
             </div>
           </div>
           </div>
-          <div className="Contactus">
-            <div >
+          <div className="Bottom-section" style={{display:"grid",flexDirection:"row",alignContent:"center",justifyContent:"center",gridTemplateColumns:isMedia?"1fr":"1fr 1fr 1fr"}}>
+            <div className="Contactus" style={{display:"grid"}}>
               <div style={{ justifyContent: "center", alignItems: "center"}}>
-              
               <h1>Contact Us</h1>
               <p>For any queries, contact us at</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor labore voluptatum, corrupti nisi officia quos, pariatur eos, ex provident tenetur repellat! Voluptas quod magni voluptatum vero iusto quam, fugiat aperiam impedit! Exercitationem nostrum molestias, et totam, voluptatum maxime quo ea odit quos quis eum porro minus tenetur explicabo? Quos reiciendis eveniet quo velit aspernatur, quis neque, harum tempore vitae at ratione expedita eius nesciunt non libero excepturi distinctio nobis deleniti explicabo autem voluptates voluptas necessitatibus. Rem saepe aperiam eius dicta. Unde maxime reiciendis voluptatibus omnis sequi esse, quisquam eius libero, dignissimos ducimus, repellat aliquam quos ipsam nihil consequuntur ratione deserunt.</p>
+              <a href="mailto:harshaditya2209@gmail.com">support@agrify.co </a>
+              
               </div>
-            </div>
-          
-          </div>
-          <footer id='Home-footer'>Demo Created With 💀 By&nbsp;<a id="textblock-devsense" href="https://hercules2209.github.io/">El Primero</a></footer>
+              </div>
+              <div style={{display:"grid",  }}>
+              <div>
+              <h1>Quick Links</h1>
+              <ul>
+              <li><a href="/">Home</a></li>
+              <li><a  href="/services">Chatbot</a></li>
+              <li><a  href="/disease">Disease Detection</a></li>
+              <li><a href="/recommend">Crop Recommendation</a></li>
+              <li><a href="/market">Marketplace</a></li>
+              </ul>
+              </div>
+
+              </div>
+              <div style={{display:"grid"}}>
+                <div style={{ gap:"0"}}>
+                <h1>Follow Us</h1>
+                    <ul>
+                      <li><a href="https://www.facebook.com/" target='_blank' style={{display:"flex",flexDirection:"row",justifyContent:"center" ,alignItems:"center"}}><FaFacebook color={"white"}/> &nbsp; Facebook</a></li>
+                      <li><a href="https://www.instagram.com/" target='_blank' style={{display:"flex",flexDirection:"row",justifyContent:"center",alignItems:"center"}}><GrInstagram color={"white"}/>&nbsp;Instagram</a></li>
+                      <li><a href="https://twitter.com/" target='_blank' style={{display:"flex",flexDirection:"row",justifyContent:"center",alignItems:"center"}}> <FaXTwitter color={"white"}/>&nbsp;Twitter</a></li>
+                      <li><a href="https://www.linkedin.com/" target='_blank' style={{display:"flex",flexDirection:"row",justifyContent:"center",alignItems:"center"}}><IoLogoLinkedin color={"white"}/>&nbsp; LinkedIn</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          <footer id='Home-footer'>Demo Created With 💀 By&nbsp;<a id="textblock-devsense" href="https://hercules2209.github.io/">El Primero</a>&copy;2024 Agrify</footer>
         </div>
     );
   }

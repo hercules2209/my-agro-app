@@ -1,0 +1,65 @@
+.App {
+  text-align: center;
+  height: max(100vh,100%);
+  width: max(100vw,100%);
+  /* background: linear-gradient(to bottom, #00ff007e, #ffffff, #03ff0394); */
+  background-image: url("https://img.freepik.com/premium-vector/abstract-pattern-background-with-futuristic-modern-style-concept_7505-2435.jpg");
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #dad7bb;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Change align-items to flex-start */
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+#video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15); /* Black background with 50% opacity */
+  z-index: -1;
+ }
+ 
+ 
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -9,10 +9,11 @@ function Imageslider() {
       url: require('../assets/images/Agrify.jpg'),
     },
     {
-      url: require('../assets/images/detect.jpeg'),
+      url: require('../assets/images/leaf_rust.png'),
     },
     {
-      url: require('../assets/images/fresh.jpg'),
+      url: require('../assets/images/AIBuddy.png')
+
     },
     {
       url: require('../assets/images/slider1.png')

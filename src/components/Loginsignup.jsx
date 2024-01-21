@@ -11,9 +11,10 @@ function LoginSignup() {
   };
 
   return (
-    <div style={{display:"flex", flexDirection:"column"}}>
+    
+    <div className="" style={{display:"flex", flexDirection:"column",}} >
       <div ></div>
-      <div>
+      <div className='log-sign-form'>
         {showLogin?<Signup />:<Login />}
       </div>
       <button onClick={toggleSection}>
