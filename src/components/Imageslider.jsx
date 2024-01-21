@@ -6,19 +6,18 @@ import './Imageslider.css';
 function Imageslider() {
   const slides = [
     {
+      url: require('../assets/images/Agrify.jpg'),
+    },
+    {
+      url: require('../assets/images/detect.jpeg'),
+    },
+    {
       url: require('../assets/images/slider1.png')
 
     },
     {
       url: require('../assets/images/slider2.png')
     },
-    {
-      url: require('../assets/images/background.png'),
-    },
-    {
-      url: require('../assets/images/Agrify.png'),
-    },
-
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

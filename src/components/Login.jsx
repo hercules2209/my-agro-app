@@ -21,13 +21,14 @@ function Login() {
       navigate('/dashboard'); // Redirect to home page upon successful login
       window.location.reload() 
     } catch (error) {
-      setError('The '); // Display a more specific error message
+      setError('The given Username or Password is wrong.'); // Display a more specific error message
     } finally {
       setLoading(false);
     }
   };
 
   return (
+    <div className=''>
     <div className="container mx-auto p-4">
       <div className="bg-white p-4 rounded-lg shadow-md">
         <h2 className="text-center text-2xl font-medium mb-4">Log In</h2>
@@ -72,8 +73,9 @@ function Login() {
         </div>
       </div>
       <div className="text-center mt-4">
-        Need an account? <Link to="/signup" className="text-blue-500 hover:underline">Sign Up</Link>
+        Need an account? 
       </div>
+    </div>
     </div>
   );
 }

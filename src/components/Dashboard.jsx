@@ -3,7 +3,7 @@ import React, { useState,useEffect } from 'react';
 import { signOut } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import './Dashboard.css'; // Import the CSS file
-import {auth,storage} from '../firebase';
+import {auth} from '../firebase';
 function Dashboard() {
   const [error, setError] = useState('');
   const [imagePreview, setImagePreview] = useState(null); // State to store the image preview URL
@@ -24,7 +24,7 @@ function Dashboard() {
     try {
       await signOut(auth); // Use signOut from Firebase
       window.location.reload()  
-      navigate('/logup');
+      navigate('/loginsignup');
     } catch (error) {
       setError('Failed to log out');
     }

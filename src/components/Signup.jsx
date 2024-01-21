@@ -9,6 +9,7 @@ function Signup() {
   const [refPassword,setRefPassword]= useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
 
@@ -96,7 +97,7 @@ function Signup() {
         </form>
       </div>
       <div className="text-center mt-4">
-        Already have an account? <Link to="/login" className="text-blue-500 hover:underline">Log In</Link>
+        Already have an account?
       </div>
     </div>
   );

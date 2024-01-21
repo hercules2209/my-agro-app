@@ -14,9 +14,9 @@
   /* For screens with a width greater than 1024px */
   @media (min-width: 1024px) {
     .slideContainer{
-        height: 720px;
+        height:780px;
     }
     .slideImage {
-        background-size: cover;
+        background-size:cover;
       }
   }

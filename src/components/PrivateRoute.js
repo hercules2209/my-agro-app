@@ -5,7 +5,8 @@ import { auth } from '../firebase';
 
 const PrivateRoute = ({ children }) => {
   const currentUser = auth.currentUser;
-  return currentUser ? children : <Navigate to="/login" replace />;
+  return currentUser ? children : <Navigate to="/loginsignup" replace />;
 };
 
 export default PrivateRoute;
+
