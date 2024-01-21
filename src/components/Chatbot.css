@@ -1,10 +1,15 @@
 
 .Main{
-  min-height: 90vh;
+  height: 100vh;
   display: flex;
   font-size: 62.5%;
-  
+  color: #FFFFFF;
+  margin: 0px;
+  overflow: hidden;
 }
+
+
+
 .sideBar{
   flex:3;
   border-right: 1px solid rgb(100,100,100);
@@ -114,6 +119,8 @@
   width:3.5rem;
   margin-right: 2rem;
   border-radius: 0.5rem;
+  position: relative;
+  bottom:0.4rem
 
 
 }
@@ -132,20 +139,23 @@
 
 }
 .chatFooter{
-  margin-top: auto;
-  width: 100%;
+  margin-top: 0;
+  width: 90vw;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 .inp{
   padding:0.5rem;
   background: rgba(28,30,58,1);
+  border:solid 2px gray;
   display:flex;
   align-items: center;
-  border-radius: 0.5rem;
-  width: 68rem;
+  border-radius: 2rem;
+  width: min(90vw, 68rem);
+
+  font-size: larger;
 
 }
 .inp>input{
@@ -164,6 +174,22 @@
   color:rgba(222,222,222,1);
 }
 
+.new-chat{
+  border: solid gray 2px;
+  border-radius: 100px;
+  height: 4rem;
+  width: 4rem;
+  margin-right: 1rem;
+  position: relative;
+  bottom:0;
+  padding-left: 1rem;
+  background-color: #8a2be2;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.new-chat:hover{
+  background-color: rgb(98, 175, 98);
+  transition: 0.2s ease;
+}
 
 
 @media only screen and (max-width: 600px) {
@@ -194,17 +220,26 @@
   }
 
   .inp {
-    width: 100%;
-
+    width: 50vw;
+    margin-bottom: 2rem;
+    border: solid 2px gray;
   }
 }
-
-/* Medium screens, like tablets */
-@media only screen and (min-width: 601px) and (max-width: 960px) {
-  /* Add specific styles for medium-sized screens if needed */
+.sideBar{
+  display: none;
 }
-
-/* Larger screens, like desktops */
-@media only screen and (min-width: 961px) {
-  /* Add specific styles for larger screens if needed */
+/* Medium screens, like tablets */
+@media only screen and (max-width: 1200px) {
+  /* Add specific styles for medium-sized screens if needed */
+  .sideBar{
+    display: none;
+  }
+  .new-chat{
+    margin-bottom: 2rem;
+  }
+  .inp{
+    width: 90vw;
+    margin-bottom: 2rem;
+    border: solid 2px gray;
+  }
 }

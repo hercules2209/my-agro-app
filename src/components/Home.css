@@ -17,7 +17,7 @@
 }
 
 #textblock-content {
-  color: #ffaf1b;
+  color: #00734d;
   font-size: 20px;
 }
 #about-overlay {
@@ -43,18 +43,18 @@
   display: block;
 }
 
- .Contactus{
-  background: rgb(4,4,97);
-  background: -moz-linear-gradient(0deg, rgba(4,4,97,1) 25%, rgba(12,28,156,1) 57%, rgba(255,255,255,1) 100%);
-  background: -webkit-linear-gradient(0deg, rgba(4,4,97,1) 25%, rgba(12,28,156,1) 57%, rgba(255,255,255,1) 100%);
-  background: linear-gradient(0deg, rgba(4,4,97,1) 25%, rgba(12,28,156,1) 57%, rgba(255,255,255,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#040461",endColorstr="#ffffff",GradientType=1); 
-  color:white;
+.Contactus {
+  background: rgb(4, 4, 181);
+  background: -moz-linear-gradient(0deg, rgba(4, 4, 97, 1) 25%, rgba(12, 28, 156, 1) 57%, rgba(255, 255, 255, 1) 100%);
+  background: -webkit-linear-gradient(0deg, rgba(4, 4, 97, 1) 25%, rgba(12, 28, 156, 1) 57%, rgba(255, 255, 255, 1) 100%);
+  background: linear-gradient(0deg, rgba(4, 4, 97, 1) 25%, rgba(12, 28, 156, 1) 57%, rgba(255, 255, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#040461", endColorstr="#ffffff", GradientType=1);
+  color: white;
   font-size: 20px;
   font-weight: 600;
   font-family: "Helvetica Neue";
   margin: 0px;
- }
+}
  #Home-footer{
   position: static;
   bottom:0px;

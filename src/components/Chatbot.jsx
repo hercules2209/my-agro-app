@@ -9,6 +9,8 @@ import rocket from '../assets/rocket.svg';
 import sendBtn from '../assets/send.svg';
 import userIcon from '../assets/user-icon.jpeg';
 import gptImgLogo from '../assets/chatgptLogo.svg';
+import Logo from "../assets/logo.png"
+import { FaPlus } from "react-icons/fa6";
 
 function Chatbot() {
   const msgEnd=useRef(null);
@@ -109,15 +111,17 @@ function Chatbot() {
         <div className='chats'>
           {messages.map((message,i)=>
             <div key={i} className={message.isBot?'chat bot':"chat"}>
-              <img className='chatImg' src={message.isBot?gptImgLogo:userIcon} alt="GPT"/><p className='txt'>{ message.text }</p>
+              <img className='chatImg' src={message.isBot?Logo:userIcon} alt="GPT"/><p className='txt'>{ message.text }</p>
             </div>
           )}
           <div ref={msgEnd}></div>
           
         </div>
         <div className='chatFooter'>
+          <div><button className='new-chat' onClick={()=>window.location.reload()}><FaPlus size="30"/></button></div>
+        
           <div className="inp">
-            <input type="text" placeholder='Type a message' value={input} onKeyDown={handleEnter} onChange={(e)=>{setInput(e.target.value)}}/>
+            <input required type="text" placeholder='Type a message' value={input} onKeyDown={handleEnter} onChange={(e)=>{setInput(e.target.value)}}/>
             <button className='send' onClick={handleSend}><img src={sendBtn} alt="Send" /></button>
           </div>
         </div>

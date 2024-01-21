@@ -9,7 +9,7 @@ const Typewriter = ({ texts, delay, infinite }) => {
     let timeout;
   
     if (currentIndex <= texts[textIndex].length) {
-      const calculatedDelay = delay || (3* texts[textIndex].length); // Calculate delay based on text length
+      const calculatedDelay = delay || (2* texts[textIndex].length); // Calculate delay based on text length
   
       timeout = setTimeout(() => {
         setCurrentText(prevText => prevText + texts[textIndex][currentIndex]);

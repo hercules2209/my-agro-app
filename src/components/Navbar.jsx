@@ -42,7 +42,7 @@
 					{!isMobile &&
 					<div  style={{ display:"flex", background: "black", padding: "5px 0 5px 5px", fontSize: "20px", alignItems: "center",    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}>
 						<div style={{ margin: "10px" }}>
-							<NavLink to="/" className={"Home"} style={({ isActive }) => ({color: isActive ? "greenyellow": "white",})}> Agrofy </NavLink>
+							<NavLink to="/" className={"Home"} style={({ isActive }) => ({color: isActive ? "greenyellow": "white",})}> Agrify </NavLink>
 						</div>
 						<div className='droplinks' style={{display:"flex", flexDirection:"row"}}>
 						<div style={{ margin: "10px" }}>
@@ -83,7 +83,7 @@
 								<RxHamburgerMenu onClick={toggleMenu} color='white' size={20}/>
          				 	</div>
 							<div style={{ marginLeft: "10px" ,marginTop: "10px", marginBottom:"10px"	  }}>
-								<NavLink to="/" className={"Home"} style={({ isActive }) => ({color: isActive ? "greenyellow": "white",})}> Farm App </NavLink>
+								<NavLink to="/" className={"Home"} style={({ isActive }) => ({color: isActive ? "greenyellow": "white",})}> Agrify </NavLink>
 							</div>
 							</div>
 							{loggedIn && 
