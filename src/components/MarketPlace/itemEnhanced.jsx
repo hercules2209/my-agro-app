@@ -16,7 +16,7 @@ function ItemEnhanced(props){
             </div>
             <div className='button-group'>
                 <button className='add-cart' onClick={()=>props.addItem(props.title,props.image)}>Add to Cart</button>
-                <button className="buy-now" ><a href='/comingsoon'>Buy Now</a></button>
+                <button className="buy-now" style={{color:"white"}}><a href='/comingsoon'>Buy Now</a></button>
             </div>
         </div>
     </div>
