@@ -51,7 +51,7 @@ function MarketPlace() {
   return (
     <div className='market-main'>
             <Cart cartItems={cartState} increase={addItem} decrease={removeItem}/>
-            { displayEnhanced && <ItemEnhanced close={toggleEnhanced} title={enhancedContent.title} desc={enhancedContent.desc} image={enhancedContent.image} addItem={addItem}/>}
+            { displayEnhanced && <ItemEnhanced close={toggleEnhanced} title={enhancedContent.title} desc={enhancedContent.desc} image={enhancedContent.image} addItem={addItem} price={enhancedContent.price}/>}
             <div className="section-head"><h1>Tools</h1></div>
             <div className='scroll-menu'>
             {tools.map((item, index) => (
@@ -62,6 +62,7 @@ function MarketPlace() {
                     addItem={addItem}
                     enhance={toggleEnhanced}
                     desc={item.desc}
+                    price={item.price}
                 />
                 ))}
             </div>
@@ -75,6 +76,7 @@ function MarketPlace() {
                     addItem={addItem}
                     enhance={toggleEnhanced}
                     desc={item.desc}
+                    price={item.price}
                 />
                 ))}
             </div>
@@ -88,6 +90,7 @@ function MarketPlace() {
                     addItem={addItem}
                     enhance={toggleEnhanced}
                     desc={item.desc}
+                    price={item.price}
                 />
                 ))}
             </div>

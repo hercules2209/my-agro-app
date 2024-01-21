@@ -11,6 +11,7 @@ function ItemEnhanced(props){
         <div className='right'>
             <div>
             <h1>{props.title}</h1>
+            <p>Rs.&nbsp;{props.price}</p><br/>
             <p>{props.desc}</p>
             </div>
             <div className='button-group'>
