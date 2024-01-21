@@ -12,6 +12,9 @@ function Imageslider() {
       url: require('../assets/images/detect.jpeg'),
     },
     {
+      url: require('../assets/images/fresh.jpg'),
+    },
+    {
       url: require('../assets/images/slider1.png')
 
     },

@@ -61,7 +61,7 @@
 					<div>
 						{loggedIn && 
 						<div style={{ margin: "10px" }}>
-							<NavLink to="/dashboard" className={"nav-profile"} style={({ isActive }) => ({ color: isActive ? "rgb(255,238,0)" : "white", })}> {displayName} <img src={imagePreview}/> </NavLink>
+							<NavLink to="/dashboard" className={"nav-profile"} style={({ isActive }) => ({ color: isActive ? "rgb(255,238,0)" : "white", })}> {displayName} <img src={imagePreview} alt=''/> </NavLink>
 						</div>
 						}
 						{!loggedIn &&
@@ -86,7 +86,7 @@
 							</div>
 							{loggedIn && 
 								<div style={{ margin: "10px" }}>
-									<NavLink to="/dashboard" className={"nav-profile"} style={({ isActive }) => ({ color: isActive ? "rgb(255,238,0)" : "white", })}> {displayName} <img src={imagePreview}/> </NavLink>
+									<NavLink to="/dashboard" className={"nav-profile"} style={({ isActive }) => ({ color: isActive ? "rgb(255,238,0)" : "white", })}> {displayName} <img src={imagePreview} alt=''/> </NavLink>
 								</div>
 							}
 							{!loggedIn &&

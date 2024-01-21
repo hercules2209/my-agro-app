@@ -18,7 +18,7 @@ function Cart(props) {
         <button onClick={handleViewSidebar}>{cartButtonContent}</button>
         <img src={variant} alt="cart" />
       </div>
-      <SideBar cartItems={props.cartItems} isOpen={sidebarOpen} toggleSideBar={handleViewSidebar}/>
+      <SideBar cartItems={props.cartItems} isOpen={sidebarOpen} toggleSideBar={handleViewSidebar} increase={props.increase} decrease={props.decrease}/>
      </div> 
   );
 }
