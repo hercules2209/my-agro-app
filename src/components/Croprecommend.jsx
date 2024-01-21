@@ -39,12 +39,12 @@ function CropRecommendForm() {
   };
 
 return (
-  <div className="">
-  <div className="min-h-screen flex items-center justify-center">
+  <div className="" >
+  <div className="min-h-screen flex items-center justify-center" >
     {/* Form Section */}
     {!isResultVisible && (
       <div className="container mx-auto"> {/* Remove max-w-screen-lg for full width on smaller screens */}
-        <div className="flex mainbox  flex-col items-center justify-center py-4">
+        <div className="flex mainbox  flex-col items-center justify-center py-4" style={{backgroundColor:"white"}}>
           <h2 className="font-semibold text-xl  text-gray-900">Crop Recommendation Form</h2>
           <p className="text-gray-700 mb-6 w-full">Please fill out all the fields regarding the location and soil data.</p>
         </div>
@@ -117,7 +117,7 @@ return (
             </div>
             <div style={{width:"100%", }} > {/* className="flex justify-end gap-4 py-4" */}
               <input type="reset" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" />
-              <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+              <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-5">Submit</button>
             </div>            
             </form>    
             </div>        
@@ -128,17 +128,18 @@ return (
       {/* Output Section */}
       {isResultVisible && (
         <div className='result-container items-center justify-center h-screen'>
-          <div className="result-box rounded shadow-md px-6 md:px-10">
+          <div className="result-box rounded shadow-md px-6 md:px-10" style={{backgroundColor:"white"}}>
             <h3 className="font-semibold text-xl text-gray-600">Recommendation Result</h3>
             <div className='flex flex-col md:flex-row items-center justify-between'>
               <div className='flex flex-col items-center md:items-start'>
                 {!isMobile && <img className='h-5 rounded-full md:h-10 md:rounded-xl' src="/Avatar.jpeg" alt="Avatar" />}
                 <div className='bg-white shadow-2xl rounded-3xl p-4'>
                   <p className="text-left whitespace-pre-wrap text-sm">{result}</p>
-                  <p className='text-lg mt-3'>You can buy these at our marketplace: <a href="/market">Market</a></p>
+                  <p className='text-lg mt-3'>You can buy these at our marketplace: <a style={{color:"blue" }} href="/market">Market</a></p>
                 </div>
               </div>
-              <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4 mb-4 md:mt-0 md:ml-4" onClick={onReset}>Retry</button>
+              <br/>
+              <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4 mb-4 md:mt-0 md:ml-4 " onClick={onReset}>Retry</button>
             </div>
           </div>
         </div>

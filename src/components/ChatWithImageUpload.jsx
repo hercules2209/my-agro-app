@@ -65,7 +65,7 @@ const ChatWithImageUpload = () => {
   });
 
   return (
-    <div className="App">
+    <div className="App" style={{height:"100vh"}}>
       <div style={{ alignContent: 'center' }}>
         {showUploadSection && (
           <div id="Upload">

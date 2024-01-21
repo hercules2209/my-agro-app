@@ -13,14 +13,15 @@ function LoginSignup() {
   return (
     
     <div className="" style={{display:"flex", flexDirection:"column",}} >
-      <div ></div>
+      <div className='test'></div>
       <div className='log-sign-form'>
         {showLogin?<Signup />:<Login />}
       </div>
-      <button onClick={toggleSection}>
+      <button className="the-switch"onClick={toggleSection}>
         {showLogin ? 'Switch to Signup' : 'Switch to Login'}
       </button>
       <div></div>
+      
     </div>
   );
 }

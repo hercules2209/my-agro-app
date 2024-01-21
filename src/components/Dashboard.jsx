@@ -24,15 +24,18 @@ function Dashboard() {
     try {
       await signOut(auth); // Use signOut from Firebase
       window.location.reload()  
-      navigate('/loginsignup');
+      navigate('/login');
     } catch (error) {
       setError('Failed to log out');
     }
   };
 
   return (
+    
     <div className="dashboard-container">
-      <div className="dashboard-card">
+      <div className="background-overlay">
+
+      <div className="dashboard-card mt-80">
         <h2 className="dashboard-title">Profile</h2>
         {error && <div className="dashboard-error">{error}</div>}
         <div className="dashboard-profile">
@@ -50,7 +53,7 @@ function Dashboard() {
         <button className="dashboard-link" onClick={handleLogout}>
           Log Out
         </button>
-      </div>
+      </div></div>
     </div>
   );
 }

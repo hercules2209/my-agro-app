@@ -74,14 +74,14 @@
             <div className="Contactus" style={{display:"grid"}}>
               <div style={{ justifyContent: "center", alignItems: "center"}}>
               <h1>Contact Us</h1>
-              <p>For any queries, contact us at</p>
+              <p>For any queries , Contact us at</p>
               <a href="mailto:harshaditya2209@gmail.com">support@agrify.co </a>
               
               </div>
               </div>
               <div style={{display:"grid",  }}>
               <div>
-              <h1>Quick Links</h1>
+              <h1>Quick links</h1>
               <ul>
               <li><a href="/">Home</a></li>
               <li><a  href="/services">Chatbot</a></li>

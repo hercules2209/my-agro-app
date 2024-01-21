@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import 'tailwindcss/tailwind.css'; // Import Tailwind CSS
 import {auth} from '../firebase';
+import "./Loginsignup.css"
 
 function Login() {
   const [email,setEmail] = useState('');
@@ -28,9 +29,9 @@ function Login() {
   };
 
   return (
-    <div className=''>
+    <div className=''style={{backgroundImage:'url("https://img.freepik.com/premium-vector/abstract-pattern-background-with-futuristic-modern-style-concept_7505-2435.jpg");',height:"100vh"}}>
     <div className="container mx-auto p-4">
-      <div className="bg-white p-4 rounded-lg shadow-md">
+      <div className="bg-white p-4 rounded-lg shadow-md log-sign-form">
         <h2 className="text-center text-2xl font-medium mb-4">Log In</h2>
         {error && <div className="bg-red-500 text-white p-4 rounded-lg mb-4">{error}</div>}
         <form onSubmit={handleSubmit}>
@@ -73,7 +74,7 @@ function Login() {
         </div>
       </div>
       <div className="text-center mt-4">
-        Need an account? 
+        Need an account? <a href="/signup" className="text-blue-500 hover:underline">Sign Up</a>
       </div>
     </div>
     </div>

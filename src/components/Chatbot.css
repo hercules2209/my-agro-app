@@ -3,9 +3,9 @@
   height: 100vh;
   display: flex;
   font-size: 62.5%;
-  color: #FFFFFF;
   margin: 0px;
   overflow: hidden;
+  
 }
 
 
@@ -128,14 +128,21 @@
   margin:1rem;
   padding:2rem 3rem;
   font-size: 1.2rem;
+  border-radius: 10px;
   display:flex;
   align-items: flex-start;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
 .bot{
   background:rgba(28,30,58,1);
   width:fit-content;
   border-radius: 0.5rem;
+  width: 97%;
+  .txt{
+    color: white;
+  }
 
 }
 .chatFooter{
@@ -154,8 +161,8 @@
   align-items: center;
   border-radius: 2rem;
   width: min(90vw, 68rem);
-
   font-size: larger;
+  margin-top: 2rem;
 
 }
 .inp>input{
@@ -171,7 +178,7 @@
 }
 .txt{
   line-height: 2.4rem;
-  color:rgba(222,222,222,1);
+  color:black ;
 }
 
 .new-chat{

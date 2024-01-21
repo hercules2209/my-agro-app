@@ -79,4 +79,9 @@
     text-decoration: underline;
     cursor: pointer;
   }
+
+  .background-overlay{
+    background-image: url("https://img.freepik.com/premium-vector/abstract-pattern-background-with-futuristic-modern-style-concept_7505-2435.jpg");
+    height: 100vh;
+  }
   

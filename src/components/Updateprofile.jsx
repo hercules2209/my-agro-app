@@ -70,6 +70,7 @@ function Updateprofile() {
 
   return (
     <div className="container mx-auto p-4">
+      <div className="background-overlay">
       <div className="bg-white p-4 rounded-lg shadow-md">
         <h2 className="text-center text-2xl font-medium mb-4">Update Profile</h2>
         {error && <div className="bg-red-500 text-white p-4 rounded-lg mb-4">{error}</div>}
@@ -153,6 +154,7 @@ function Updateprofile() {
       <div className="text-center mt-4">
         <Link to="/dashboard" className="text-blue-500 hover:underline">Cancel</Link>
       </div>
+    </div>
     </div>
   );
 }

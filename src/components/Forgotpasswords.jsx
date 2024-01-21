@@ -28,6 +28,7 @@ function Forgotpassword() {
 
   return (
     <div className="container mx-auto p-4">
+      <div className="background-overlay">
       <div className="bg-white p-4 rounded-lg shadow-md">
         <h2 className="text-center text-2xl font-medium mb-4">Password Reset</h2>
         {error && <div className="bg-red-500 text-white p-4 rounded-lg mb-4">{error}</div>}
@@ -62,6 +63,7 @@ function Forgotpassword() {
       <div className="text-center mt-4">
         Need an account? <Link to="/signup" className="text-blue-500 hover:underline">Sign Up</Link>
       </div>
+    </div>
     </div>
   );
 }

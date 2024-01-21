@@ -8,6 +8,7 @@ import saved from '../assets/bookmark.svg';
 import rocket from '../assets/rocket.svg';
 import sendBtn from '../assets/send.svg';
 import userIcon from '../assets/user-icon.jpeg';
+import gptImgLogo from '../assets/chatgptLogo.svg';
 import Logo from "../assets/logo.png"
 import { FaPlus } from "react-icons/fa6";
 
@@ -80,7 +81,7 @@ function Chatbot() {
   };
 
   return (
-    <div className="Main" style={{ backgroundColor:"rgb(28,30,58)",}}>
+    <div className="Main">
       <div className='sideBar'>
 
         <div className='upperSide'>

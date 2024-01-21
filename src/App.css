@@ -1,6 +1,9 @@
 .App {
   text-align: center;
+  height: max(100vh,100%);
+
   /* background: linear-gradient(to bottom, #00ff007e, #ffffff, #03ff0394); */
+  background-image: url("https://img.freepik.com/premium-vector/abstract-pattern-background-with-futuristic-modern-style-concept_7505-2435.jpg");
 }
 
 .App-logo {

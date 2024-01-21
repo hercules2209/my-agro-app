@@ -10,11 +10,12 @@
 	import ChatWithImageUpload from "./ChatWithImageUpload.jsx";
 	import Croprecommend from "./Croprecommend.jsx";
 	import Home from "./Home.jsx";
-	import Loginsignup from "./Loginsignup.jsx";
 	import Comingsoon from "./Comingsoon.jsx"
 	import MarketPlace from "./MarketPlace/MarketPlace.jsx";
 	import { auth} from '../firebase'; 
 	import Logo from "../assets/logo.png"
+	import Login from './Login.jsx';
+	import Signup from './Signup.jsx';
 	import './Navbar.css'
 
 	function Navbar() {
@@ -72,7 +73,7 @@
 						}
 						{!loggedIn &&
 							<div style={{ margin: "10px" }}>
-							<NavLink to="/loginsignup" className={"Signup"} style={({ isActive }) => ({ color: isActive ? "rgb(255,238,0)" : "white", })}> Signin/Signup</NavLink>
+							<NavLink to="/signup" className={"Signup"} style={({ isActive }) => ({ color: isActive ? "rgb(255,238,0)" : "white", })}> Signin/Signup</NavLink>
 						</div>
 						}
 					</div>
@@ -102,7 +103,7 @@
 							}
 							{!loggedIn &&
 								<div style={{ margin: "10px" }}>
-									<NavLink to="/loginsignup" className={"Signup"} style={({ isActive }) => ({ color: isActive ? "rgb(255,238,0)" : "white", })}> Signin/Signup</NavLink>
+									<NavLink to="/signup" className={"Signup"} style={({ isActive }) => ({ color: isActive ? "rgb(255,238,0)" : "white", })}> Signin/Signup</NavLink>
 								</div>
 							}
 						
@@ -134,7 +135,8 @@
 						<Route exact path="/market" element={<MarketPlace />} />
 						<Route exact path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
 						<Route exact path="/update-profile" element={<PrivateRoute><UpdateProfile /></PrivateRoute>} />
-						<Route exact path="/loginsignup" element={<Loginsignup/>} />
+						<Route exact path="/signup" element={<Signup/>} />
+						<Route exact path="/login" element={<Login/>} />
 						<Route exact path="/forgot-password" element={<Forgotpassword />} />
 						<Route exact path="/comingsoon" element={<Comingsoon />} />
 					</Routes>
