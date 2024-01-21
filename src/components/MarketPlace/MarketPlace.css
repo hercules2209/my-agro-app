@@ -83,6 +83,10 @@
         background: rgb(85, 65, 65);
         transition: 0.3s ease;
     }
+    button:active{
+        background: rgb(81, 81, 81) 2px;
+        transition: 0.3s ease;
+    }
 }
 
 .card{
@@ -127,6 +131,10 @@
         button:hover{
             color: aliceblue;
             background: rgb(73, 90, 71) 2px;
+            transition: 0.3s ease;
+        }
+        button:active{
+            background: rgb(81, 81, 81) 2px;
             transition: 0.3s ease;
         }
     }
@@ -187,6 +195,10 @@
         button:hover{
             color: aliceblue;
             background: rgb(14, 143, 0) 2px;
+            transition: 0.3s ease;
+        }
+        button:active{
+            background: rgb(81, 81, 81) 2px;
             transition: 0.3s ease;
         }
     };
