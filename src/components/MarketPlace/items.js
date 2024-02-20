@@ -1,3 +1,4 @@
+// ItemEnhanced.js
 export const tools = [
     {
         "name": "Plow",
