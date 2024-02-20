@@ -1,19 +1,28 @@
-//Card.jsx
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './MarketPlace.css';
-function Card(props) {
-    const obj={"title":props.name,"image":props.image,"rating":props.rating,"desc":props.desc,"price":props.price}
-  return (
 
-      <div className='card'>
-        <img src={props.image} alt="hello" onClick={()=>props.enhance(obj)}></img>
-        <div className='text-info'>
-            <a onClick={()=>props.enhance(obj)}><h2>{props.name}</h2></a>
-            <p>Rs.&nbsp;{props.price}</p>
-            <p>⭐ {props.rating}/5</p>
-            <button onClick={()=>props.addItem(props.name,props.image)}>Add to Cart</button>
-        </div>
+function Card({ name, image, rating, desc, price, enhance, addItem }) {
+  const handleClick = () => {
+    const obj = { title: name, image, rating, desc, price };
+    enhance(obj);
+  };
+
+  const handleAddToCart = () => {
+    addItem(name, image);
+  };
+
+  return (
+    <div className='card'>
+      <img src={image} alt={name} onClick={handleClick} />
+      <div className='text-info'>
+        <a onClick={handleClick}>
+          <h2>{name}</h2>
+        </a>
+        <p>Rs.&nbsp;{price}</p>
+        <p>⭐ {rating}/5</p>
+        <button onClick={handleAddToCart}>Add to Cart</button>
       </div>
+    </div>
   );
 }
 

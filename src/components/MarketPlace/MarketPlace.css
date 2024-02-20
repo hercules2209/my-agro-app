@@ -9,7 +9,6 @@
     grid-template-rows: minmax(150px, 1fr);
     gap :20px;
     padding-top: 10px;
-    /* background-color: ghostwhite; */
     overflow-x: scroll;
     overflow-y: hidden;
 }
@@ -26,38 +25,6 @@
     overflow-x: hidden;
     width: 100%;
 }
-/* .app {
-    display: grid;
-    grid-template-columns: 20px 1fr 20px;
-  }.app > * {
-    grid-column: 2 / -2;
-  }.app > .full {
-    grid-column: 1 / -1;
-  } */
-
-/* @media (min-width: 750px) {
-    .main{
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (min-width: 1000px) {
-    .main{
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-
-@media (min-width: 1200px) {
-    .main{
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-}
-
-@media (min-width: 1500px) {
-    .main{
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    }
-} */
 
 .cart{
     width: 100%;
@@ -74,7 +41,6 @@
         margin-left: 20px;
     };
     button{
-        /* border: solid brown 2px; */
         padding: 5px 10px 5px 10px;
         border-radius: 5px;
         color: rgb(85, 65, 65);
@@ -93,7 +59,6 @@
 .card{
     margin: 20px;
     border: solid rgb(184, 184, 184) 1px;
-    /* padding: 10px; */
     border-radius: 5px;
 
     height: 430px;
@@ -245,7 +210,6 @@
     display: block;
     left: 0;
     backdrop-filter: blur(10px);
-    /* z-index: 999; */
     box-shadow: rgb(196, 193, 193) 2px 2px 2px 2px;
     overflow-y: scroll;
     
@@ -364,18 +328,7 @@
     }
 }
 
-  /* .market-overlay{
-    height: 100vh;
-    width: 100vw;
-  }
-  .market-overlay.on{
-    background-color: black;
-    z-index: 90;
-  }
-  .market-overlay.off{
-    z-index: -90;
-    opacity: 0%;
-  } */
+  
   @media (min-width: 1400px) {
     .item-enhanced{
         height: 80vh;
