@@ -8,6 +8,7 @@
 	import UpdateProfile from "./Updateprofile.jsx";
 	import Chatbot from "./Chatbot.jsx";
 	import ChatWithImageUpload from "./ChatWithImageUpload.jsx";
+	import GlobalChatroom from "./GlobalChatroom.jsx";
 	import Croprecommend from "./Croprecommend.jsx";
 	import Home from "./Home.jsx";
 	import Comingsoon from "./Comingsoon.jsx"
@@ -61,6 +62,9 @@
 						</div> 
 						<div style={{margin:"10px"}}>
 							<NavLink to="/market" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white", })}> Market </NavLink>
+						</div>
+						<div style={{margin:"10px"}}>
+							<NavLink to="/globalChatroom" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white", })}> Global Chatroom </NavLink>
 						</div>
 						</div>
 						<div style={{flexGrow:10}}>
@@ -122,6 +126,9 @@
 						<div style={{margin:"10px"}}>
 							<NavLink to="/market" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white", })}> Market </NavLink>
 						</div>
+						<div style={{margin:"10px"}}>
+							<NavLink to="/globalChatroom" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white", })}> Global Chatroom</NavLink>
+						</div>
 						</div>
 						}
 					</div>
@@ -139,6 +146,7 @@
 						<Route exact path="/login" element={<Login/>} />
 						<Route exact path="/forgot-password" element={<Forgotpassword />} />
 						<Route exact path="/comingsoon" element={<Comingsoon />} />
+						<Route excat path="/globalChatroom" element={<PrivateRoute><GlobalChatroom/></PrivateRoute>}/>
 					</Routes>
 				</BrowserRouter>
 			</>
