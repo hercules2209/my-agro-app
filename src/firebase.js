@@ -1,4 +1,3 @@
-import { databaseURL } from "firebase-functions/params";
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
 import { browserSessionPersistence } from "firebase/auth";
