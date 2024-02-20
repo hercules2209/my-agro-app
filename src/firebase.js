@@ -2,7 +2,6 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
 import { browserSessionPersistence } from "firebase/auth";
 import { getStorage } from 'firebase/storage';
-
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,

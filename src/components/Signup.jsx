@@ -51,6 +51,7 @@ function Signup() {
       <div className="bg-white p-4 rounded-lg shadow-md log-sign-form">
         <h2 className="text-center text-2xl font-medium mb-4">Sign Up</h2>
         {error && <div className="bg-red-500 text-white p-4 rounded-lg mb-4">{error}</div>}
+        <div>
         <form onSubmit={handleSubmit}>
           
         <div className="mb-4">
@@ -100,6 +101,7 @@ function Signup() {
       </div>
       <div className="text-center mt-4">
         Already have an account? <a href="/login" className="text-blue-500 hover:underline">Log In</a>
+        </div>
       </div>
     </div>
   );

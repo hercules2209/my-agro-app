@@ -34,6 +34,7 @@ function Login() {
       <div className="bg-white p-4 rounded-lg shadow-md log-sign-form">
         <h2 className="text-center text-2xl font-medium mb-4">Log In</h2>
         {error && <div className="bg-red-500 text-white p-4 rounded-lg mb-4">{error}</div>}
+        <div>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
@@ -75,6 +76,7 @@ function Login() {
       </div>
       <div className="text-center mt-4">
         Need an account? <a href="/signup" className="text-blue-500 hover:underline">Sign Up</a>
+      </div>
       </div>
     </div>
     </div>
