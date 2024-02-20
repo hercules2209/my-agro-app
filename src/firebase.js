@@ -1,3 +1,4 @@
+import { databaseURL } from "firebase-functions/params";
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
 import { browserSessionPersistence } from "firebase/auth";
@@ -11,7 +12,7 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID
 };
 
-console.log(firebaseConfig);
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);

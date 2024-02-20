@@ -9,7 +9,7 @@ const SideBar = props => {
         <div className={overlayClass}></div>
         
     <div className={sidebarClass} >
-    <div class="side-bar-header"><div className="my-cart"><IoMdArrowRoundBack className="back-arrow" onClick={props.toggleSideBar}/><h1>My Cart</h1></div><button className="checkout"><a href='/comingsoon'>Checkout</a></button></div>
+    <div className="side-bar-header"><div className="my-cart"><IoMdArrowRoundBack className="back-arrow" onClick={props.toggleSideBar}/><h1>My Cart</h1></div><button className="checkout"><a href='/comingsoon'>Checkout</a></button></div>
         {
             props.cartItems.map(
                 (item,index)=>{
