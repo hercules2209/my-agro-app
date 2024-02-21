@@ -63,8 +63,8 @@ function App() {
             {chats.map((c, i) => (
               <div key={i} className={`container ${c.user.email === user.email ? 'me' : ''}`}>
                 <p className="chatbox">
-                  <strong>{c.user.displayName}: </strong>
-                  <span>{c.message}</span>
+                <strong>{`${c.user.displayName ? `${c.user.displayName}` : `${c.user.email}`}`}</strong>
+                  <span>:&nbsp; {c.message}</span>
                 </p>
               </div>
             ))}

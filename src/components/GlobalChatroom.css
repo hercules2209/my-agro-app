@@ -19,7 +19,8 @@
 
 .background{
     background-image: url("https://img.freepik.com/premium-vector/abstract-pattern-background-with-futuristic-modern-style-concept_7505-2435.jpg"); 
-   height:98vh;
+    height:70vh;
+    top:5.5rem;
   }
   .chatbox{
     border-radius: 10px;
@@ -58,10 +59,10 @@
   
   .chat-container{
     position: absolute;
-    top:10rem;
+    top:5rem;
     left:15rem;
     width: 80%;
-    height: 75vh;
+    height: 70vh;
     overflow-y:scroll;
   }
   
