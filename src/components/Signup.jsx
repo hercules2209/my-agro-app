@@ -4,7 +4,7 @@ import {  useNavigate } from 'react-router-dom';
 import 'tailwindcss/tailwind.css'; // Import Tailwind CSS
 import {auth} from '../firebase';
 import "./Loginsignup.css"
-import { getDatabase, ref, onValue, get,update ,push} from 'firebase/database';
+import { set } from 'firebase/database';
 function Signup() {
   const [email, setEmail] = useState('');
   const [password,setPassword] = useState('');
@@ -17,7 +17,7 @@ function Signup() {
 
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault();x
   
     try {
       setError('');
@@ -25,15 +25,12 @@ function Signup() {
       if (password !== refPassword) {
         throw new Error('Passwords do not match'); // Throw a custom error if passwords don't match
       }
-      await createUserWithEmailAndPassword(auth, email, password);
       
-      // After successful signup, create a new node for the user's cart in Firebase
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userEmail = userCredential.user.email.replace('.', '_');
       const db = getDatabase();
-      const userCartRef = ref(db, `CART/${email.replace('.', '_')}`);
-      update(userCartRef, {}); // Create an empty node for the user's cart
-      
-      navigate('/dashboard'); // Redirect to dashboard page upon successful signup
-      window.location.reload(); // Reload the page after successful signup
+      const userCartRef = ref(db, `CART/${userEmail}`);
+      await set(userCartRef, { /* initial data for the user's cart */ });
     } catch (error) {
       let errorMessage;
       switch (error.code) {
