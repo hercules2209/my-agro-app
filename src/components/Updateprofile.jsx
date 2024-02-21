@@ -3,7 +3,7 @@ import { updateEmail, updatePassword, updateProfile } from 'firebase/auth';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth, storage } from '../firebase'; // Make sure to import the storage reference
-import './Updateprofile.css'
+
 function Updateprofile() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -27,7 +27,7 @@ function Updateprofile() {
 
   const handlePhotoChange = (event) => {
     const file = event.target.files[0];
-    setPhoto(file);
+    setPhoto(file); 
     // Update image preview when a new photo is selected
     const reader = new FileReader();
     reader.onloadend = () => {
@@ -63,19 +63,20 @@ function Updateprofile() {
       navigate('/dashboard'); // Redirect to home page after successful update
     } catch (error) {
       setError(error.message);
+      //write code to print Firebase: Error (auth/requires-recent-login). as an error message when user is not logged in for a long time
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="background-overlay">
-      <div className="bg-white p-4 rounded-lg shadow-md">
+    <div className="container  p-4 flex-row justify-center ">
+      <div className=" mt-40 pt-6">
+      <div className="bg-white p-4 rounded-lg shadow-md w-96 ">
         <h2 className="text-center text-2xl font-medium mb-4">Update Profile</h2>
         {error && <div className="bg-red-500 text-white p-4 rounded-lg mb-4">{error}</div>}
         <form onSubmit={handleSubmit}>
-                  {/* New form field for profile photo */}
+                  
           <div style={{display:"flex", justifyContent:"center",flexDirection:"row"}}>
           <div className="mb-4 relative">
             <label className="block text-gray-700 font-bold mb-2">
@@ -86,7 +87,7 @@ function Updateprofile() {
             <input
               type="file"
               id="photo"
-              className="absolute inset-0 w-40 h-40 opacity-0 hover:opacity-100 cursor-pointer"
+              className="absolute inset-0 w-40 h-40 opacity-0 cursor-pointer"
               onChange={handlePhotoChange}
             />
           </div>

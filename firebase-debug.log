@@ -1,0 +1,131 @@
+[debug] [2024-02-21T11:10:58.613Z] ----------------------------------------------------------------------
+[debug] [2024-02-21T11:10:58.615Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2024-02-21T11:10:58.615Z] CLI Version:   13.0.3
+[debug] [2024-02-21T11:10:58.615Z] Platform:      linux
+[debug] [2024-02-21T11:10:58.615Z] Node Version:  v21.6.1
+[debug] [2024-02-21T11:10:58.616Z] Time:          Wed Feb 21 2024 16:40:58 GMT+0530 (India Standard Time)
+[debug] [2024-02-21T11:10:58.616Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-02-21T11:10:58.662Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-02-21T11:10:58.663Z] > authorizing via signed-in user (harshaditya2209@gmail.com)
+[debug] [2024-02-21T11:10:58.663Z] [iam] checking project diseasedet for permissions ["firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
+[debug] [2024-02-21T11:10:58.664Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/diseasedet:testIamPermissions [none]
+[debug] [2024-02-21T11:10:58.664Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/diseasedet:testIamPermissions x-goog-quota-user=projects/diseasedet
+[debug] [2024-02-21T11:10:58.664Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/diseasedet:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2024-02-21T11:11:05.816Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/diseasedet:testIamPermissions 200
+[debug] [2024-02-21T11:11:05.816Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/diseasedet:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2024-02-21T11:11:05.817Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/diseasedet [none]
+[debug] [2024-02-21T11:11:07.239Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/diseasedet 200
+[debug] [2024-02-21T11:11:07.239Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/diseasedet {"projectId":"diseasedet","projectNumber":"1062062460810","displayName":"DiseaseDet","name":"projects/diseasedet","resources":{"hostingSite":"diseasedet","realtimeDatabaseInstance":"diseasedet-default-rtdb","storageBucket":"diseasedet.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_d4c67d65-edcf-4347-abcd-db7cc07e5e1b"}
+[info] 
+[info] === Deploying to 'diseasedet'...
+[info] 
+[info] i  deploying storage, hosting 
+[info] i  storage: ensuring required API firebasestorage.googleapis.com is enabled... 
+[debug] [2024-02-21T11:11:07.241Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/diseasedet/services/firebasestorage.googleapis.com [none]
+[debug] [2024-02-21T11:11:07.241Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/diseasedet/services/firebasestorage.googleapis.com x-goog-quota-user=projects/diseasedet
+[debug] [2024-02-21T11:11:10.924Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/diseasedet/services/firebasestorage.googleapis.com 200
+[debug] [2024-02-21T11:11:10.924Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/diseasedet/services/firebasestorage.googleapis.com [omitted]
+[info] ✔  storage: required API firebasestorage.googleapis.com is enabled 
+[debug] [2024-02-21T11:11:10.925Z] >>> [apiv2][query] GET https://firebasestorage.googleapis.com/v1alpha/projects/diseasedet/defaultBucket [none]
+[debug] [2024-02-21T11:11:14.611Z] <<< [apiv2][status] GET https://firebasestorage.googleapis.com/v1alpha/projects/diseasedet/defaultBucket 200
+[debug] [2024-02-21T11:11:14.611Z] <<< [apiv2][body] GET https://firebasestorage.googleapis.com/v1alpha/projects/diseasedet/defaultBucket {"name":"projects/diseasedet/defaultBucket","location":"US","bucket":{"name":"projects/diseasedet/buckets/diseasedet.appspot.com"}}
+[info] i  firebase.storage: checking storage.rules for compilation errors... 
+[debug] [2024-02-21T11:11:14.613Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/diseasedet:test [none]
+[debug] [2024-02-21T11:11:14.613Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/diseasedet:test [omitted]
+[debug] [2024-02-21T11:11:17.272Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/diseasedet:test 200
+[debug] [2024-02-21T11:11:17.273Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/diseasedet:test {}
+[info] ✔  firebase.storage: rules file storage.rules compiled successfully 
+[debug] [2024-02-21T11:11:17.275Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/diseasedet/versions [none]
+[debug] [2024-02-21T11:11:17.275Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/diseasedet/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2024-02-21T11:11:23.418Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/diseasedet/versions 200
+[debug] [2024-02-21T11:11:23.418Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/diseasedet/versions {"name":"projects/1062062460810/sites/diseasedet/versions/0fe4e97668766b0f","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2024-02-21T11:11:23.419Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/diseasedet/releases pageSize=10&pageToken=
+[debug] [2024-02-21T11:11:27.718Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/diseasedet/releases 200
+[debug] [2024-02-21T11:11:27.718Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/diseasedet/releases {"releases":[{"name":"projects/diseasedet/releases/cloud.firestore/agroapp1","rulesetName":"projects/diseasedet/rulesets/7bb35ff4-9f42-4f27-8b9a-004ec09b27f5","createTime":"2024-01-19T12:31:56.448985Z","updateTime":"2024-01-19T12:31:56.448985Z"},{"name":"projects/diseasedet/releases/firebase.storage/diseasedet.appspot.com","rulesetName":"projects/diseasedet/rulesets/bb6bab7f-15ee-41ef-89f5-6792f9bea2b9","createTime":"2024-01-19T12:58:42.480200Z","updateTime":"2024-02-21T10:42:35.292307Z"}]}
+[debug] [2024-02-21T11:11:27.725Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/diseasedet/rulesets/bb6bab7f-15ee-41ef-89f5-6792f9bea2b9 [none]
+[debug] [2024-02-21T11:11:29.356Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/diseasedet/rulesets/bb6bab7f-15ee-41ef-89f5-6792f9bea2b9 200
+[debug] [2024-02-21T11:11:29.356Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/diseasedet/rulesets/bb6bab7f-15ee-41ef-89f5-6792f9bea2b9 [omitted]
+[info] i  storage: latest version of storage.rules already up to date, skipping upload... 
+[info] i  hosting[diseasedet]: beginning deploy... 
+[info] i  hosting[diseasedet]: found 32 files in build 
+[debug] [2024-02-21T11:11:29.365Z] [hosting] uploading with 200 concurrency
+[debug] [2024-02-21T11:11:29.774Z] [hosting] hash cache [YnVpbGQ] stored for 32 files
+[debug] [2024-02-21T11:11:29.774Z] [hosting][hash queue][FINAL] {"max":404,"min":9,"avg":34.46875,"active":0,"complete":32,"success":32,"errored":0,"retried":0,"total":32,"elapsed":408}
+[debug] [2024-02-21T11:11:29.774Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/1062062460810/sites/diseasedet/versions/0fe4e97668766b0f:populateFiles [none]
+[debug] [2024-02-21T11:11:29.774Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/1062062460810/sites/diseasedet/versions/0fe4e97668766b0f:populateFiles {"files":{"/404.html":"6537619fa0edb6a05c3fa83265461172fea2307ecff34424f323310c8c8eb4be","/asset-manifest.json":"c55ff991243be7d1a8f45b4a810fb477c35d1bd72b4da575703a63a320d65d61","/index.html":"018e1ecef6eb089220f51bf06502fbca5af45a0b018a1f76bf39022528d7bf88","/favicon.ico":"fc26b72d1f6d47474d8993a667b2af803ede41c9996d0f69e62ed6e415d7fed0","/logo192.png":"50bd60c6fefdd7de57fb652cf717e33c712106ffe0a32da5f75a12bf22cecbc0","/manifest.json":"857795ac8bf0ee8c68c0567b646b32974ba318cac937156e3b0f367d9051d866","/robots.txt":"2544ca049f223a42bff01f72ad930a5edba75bbb7199d0f8430a02ff5aca16ec","/logo512.png":"9ab6cb941e493973baf9755bd3fc76988762e6b514d5bc365aeaccefa0de034f","/static/js/787.d4aba7ab.chunk.js":"0c00445ac7c72d685c3e1e83aebb09ff59fb128872fbbcabce37609216e14331","/static/css/main.b8d01624.css":"534154f1166f8953011e61a3c3336e4983095d927c4578aaeb97bc13f722ed24","/static/js/787.d4aba7ab.chunk.js.map":"4821e7fa1a500f1114e07b8b827c5a416980f66f9588891baaa31f7d26838a80","/static/js/main.472d65dc.js.LICENSE.txt":"31aa02ab00c747720a30f55f5dc8c7e20d4012b098594adb0fc9e7af8d0e5739","/static/css/main.b8d01624.css.map":"03cdea1037a3359ca620e7bfdb292463762da572a991e7134a093b6ca23b9cd3","/static/media/bookmark.c2178bf87e70a458757ba7290cea3ce7.svg":"04ffce101a0da497a01a12c275337cfe938b4795bb107a5ee89654ea4098ec5d","/static/media/cart-variant.4350e3df540c25223d9fb315e4f4a23e.svg":"1f6f328137444e52beb145156afe37f63e211ceb48eb8207e6953a9c2eef4a45","/static/media/chatgpt.4c8727aa9bdbf99f9994196451794f61.svg":"0361d7eefec6d0549301547c681910a0be900d67af7023b84aef516f12de31cc","/static/media/chatgptLogo.496558ea071637d128587cb98b0e1b1c.svg":"33119d9128f9b5355022fb76b5d4969a416ed6b63ea357ce33e0dbf26ce96f24","/static/media/home.54b8621214269a989c8b7627385bcd8a.svg":"8c5552a7a3bdaa0a9e96b81ed761931fbf8d70c9bb47d72d74ae7e84d1f79c56","/static/media/message.ef36f79693990ff17ecf42cd018fcb4e.svg":"7551e56dc48492af1de9c40550ade8be54a43c6aef5be939c61c4c25fb354830","/static/media/rocket.3083828716c5d7716f71aa7e179555de.svg":"6c69e956c7e4fd94184e319f83ae24970ebb11cfb60ff06407b72e61d44efae5","/static/media/send.5cc05986cf306ae5d4ce38bf6fdc3def.svg":"2933017aace1654e4f72577f1251d3ae3be19725782545eca60ad8d3bcece824","/logo.png":"3ba2f1ec630344cac6897b310ca158adde6851062ef082bd9d4b7dd9815bdb38","/static/media/logo.6d31f4dc423e9bb40f90.png":"3ba2f1ec630344cac6897b310ca158adde6851062ef082bd9d4b7dd9815bdb38","/Avatar.jpeg":"6813b4167689c248084a151056bb3b31b068541ba3e7cf7076feaa63ea5da519","/logo.ico":"2d0298b8fa47df398317bb18e6cad51827465798a47573a791c97de268eed36c","/static/js/main.472d65dc.js":"283f0eff2cf35cf5e7c3c7c18722f3cd36592b0baab7666310eded822d8386d7","/static/media/leaf_rust.aca7034417161b52dda7.png":"a9bcbf0516307dcb840ec5a766d55736cfcb2d7629ffbb1170d6429fa99dd21c","/static/media/Agrify.85271693231cbdbe2860.jpg":"eca7732e1c5e87cafe670fbfdbba467e64a821266c9c9c8b2d7098af2b3c3585","/static/media/slider2.3c9e1d4e1879f8241373.png":"32b12a4989bdfa13f285225d8682b2002dadff89ade8ede1c1faf1f6baf08db2","/static/media/slider1.a3ca37e5c19f621bc692.png":"a77854b17b037f858a2b23753e7832556ea6d860b3dd10c1352a942c38e68c82","/static/media/AIBuddy.02495f44bbfcaf046abd.png":"df37272ef53e74adce5bab04de3b3c1996c29e67ccf52ab4e8290558582575ef","/static/js/main.472d65dc.js.map":"c7ac8710fdd5f3603c11a0bf05687bac3d0e827dcadb9a61cd7851be859655e1"}}
+[debug] [2024-02-21T11:11:32.428Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/1062062460810/sites/diseasedet/versions/0fe4e97668766b0f:populateFiles 200
+[debug] [2024-02-21T11:11:32.428Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/1062062460810/sites/diseasedet/versions/0fe4e97668766b0f:populateFiles {"uploadRequiredHashes":["283f0eff2cf35cf5e7c3c7c18722f3cd36592b0baab7666310eded822d8386d7","c7ac8710fdd5f3603c11a0bf05687bac3d0e827dcadb9a61cd7851be859655e1","018e1ecef6eb089220f51bf06502fbca5af45a0b018a1f76bf39022528d7bf88","534154f1166f8953011e61a3c3336e4983095d927c4578aaeb97bc13f722ed24","c55ff991243be7d1a8f45b4a810fb477c35d1bd72b4da575703a63a320d65d61","03cdea1037a3359ca620e7bfdb292463762da572a991e7134a093b6ca23b9cd3"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files"}
+[debug] [2024-02-21T11:11:32.429Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/283f0eff2cf35cf5e7c3c7c18722f3cd36592b0baab7666310eded822d8386d7 [none]
+[debug] [2024-02-21T11:11:32.429Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/283f0eff2cf35cf5e7c3c7c18722f3cd36592b0baab7666310eded822d8386d7 [stream]
+[debug] [2024-02-21T11:11:32.430Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/c7ac8710fdd5f3603c11a0bf05687bac3d0e827dcadb9a61cd7851be859655e1 [none]
+[debug] [2024-02-21T11:11:32.430Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/c7ac8710fdd5f3603c11a0bf05687bac3d0e827dcadb9a61cd7851be859655e1 [stream]
+[debug] [2024-02-21T11:11:32.431Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/018e1ecef6eb089220f51bf06502fbca5af45a0b018a1f76bf39022528d7bf88 [none]
+[debug] [2024-02-21T11:11:32.431Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/018e1ecef6eb089220f51bf06502fbca5af45a0b018a1f76bf39022528d7bf88 [stream]
+[debug] [2024-02-21T11:11:32.432Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/534154f1166f8953011e61a3c3336e4983095d927c4578aaeb97bc13f722ed24 [none]
+[debug] [2024-02-21T11:11:32.432Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/534154f1166f8953011e61a3c3336e4983095d927c4578aaeb97bc13f722ed24 [stream]
+[debug] [2024-02-21T11:11:32.432Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/c55ff991243be7d1a8f45b4a810fb477c35d1bd72b4da575703a63a320d65d61 [none]
+[debug] [2024-02-21T11:11:32.432Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/c55ff991243be7d1a8f45b4a810fb477c35d1bd72b4da575703a63a320d65d61 [stream]
+[debug] [2024-02-21T11:11:32.433Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/03cdea1037a3359ca620e7bfdb292463762da572a991e7134a093b6ca23b9cd3 [none]
+[debug] [2024-02-21T11:11:32.433Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/03cdea1037a3359ca620e7bfdb292463762da572a991e7134a093b6ca23b9cd3 [stream]
+[debug] [2024-02-21T11:11:32.433Z] [hosting][populate queue][FINAL] {"max":2656,"min":2656,"avg":2656,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":2660}
+[debug] [2024-02-21T11:11:32.433Z] [hosting] uploads queued: 6
+[debug] [2024-02-21T11:11:36.244Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/534154f1166f8953011e61a3c3336e4983095d927c4578aaeb97bc13f722ed24 200
+[debug] [2024-02-21T11:11:36.245Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/534154f1166f8953011e61a3c3336e4983095d927c4578aaeb97bc13f722ed24 [stream]
+[debug] [2024-02-21T11:11:37.957Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/c55ff991243be7d1a8f45b4a810fb477c35d1bd72b4da575703a63a320d65d61 200
+[debug] [2024-02-21T11:11:37.958Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/c55ff991243be7d1a8f45b4a810fb477c35d1bd72b4da575703a63a320d65d61 [stream]
+[debug] [2024-02-21T11:11:39.596Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/018e1ecef6eb089220f51bf06502fbca5af45a0b018a1f76bf39022528d7bf88 200
+[debug] [2024-02-21T11:11:39.596Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/018e1ecef6eb089220f51bf06502fbca5af45a0b018a1f76bf39022528d7bf88 [stream]
+[debug] [2024-02-21T11:11:42.871Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/03cdea1037a3359ca620e7bfdb292463762da572a991e7134a093b6ca23b9cd3 200
+[debug] [2024-02-21T11:11:42.871Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/03cdea1037a3359ca620e7bfdb292463762da572a991e7134a093b6ca23b9cd3 [stream]
+[debug] [2024-02-21T11:12:02.833Z] [uploadQueue] Retrying task 283f0eff2cf35cf5e7c3c7c18722f3cd36592b0baab7666310eded822d8386d7
+[debug] [2024-02-21T11:12:02.834Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/283f0eff2cf35cf5e7c3c7c18722f3cd36592b0baab7666310eded822d8386d7 [none]
+[debug] [2024-02-21T11:12:02.834Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/283f0eff2cf35cf5e7c3c7c18722f3cd36592b0baab7666310eded822d8386d7 [stream]
+[debug] [2024-02-21T11:12:28.339Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/283f0eff2cf35cf5e7c3c7c18722f3cd36592b0baab7666310eded822d8386d7 200
+[debug] [2024-02-21T11:12:28.339Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/283f0eff2cf35cf5e7c3c7c18722f3cd36592b0baab7666310eded822d8386d7 [stream]
+[debug] [2024-02-21T11:15:08.570Z] [uploadQueue] Retrying task c7ac8710fdd5f3603c11a0bf05687bac3d0e827dcadb9a61cd7851be859655e1
+[debug] [2024-02-21T11:15:08.571Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/c7ac8710fdd5f3603c11a0bf05687bac3d0e827dcadb9a61cd7851be859655e1 [none]
+[debug] [2024-02-21T11:15:08.571Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/diseasedet/versions/0fe4e97668766b0f/files/c7ac8710fdd5f3603c11a0bf05687bac3d0e827dcadb9a61cd7851be859655e1 [stream]
+[debug] [2024-02-21T11:20:50.466Z] ----------------------------------------------------------------------
+[debug] [2024-02-21T11:20:50.467Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2024-02-21T11:20:50.468Z] CLI Version:   13.0.3
+[debug] [2024-02-21T11:20:50.468Z] Platform:      linux
+[debug] [2024-02-21T11:20:50.468Z] Node Version:  v21.6.1
+[debug] [2024-02-21T11:20:50.468Z] Time:          Wed Feb 21 2024 16:50:50 GMT+0530 (India Standard Time)
+[debug] [2024-02-21T11:20:50.468Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-02-21T11:20:50.512Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-02-21T11:20:50.512Z] > authorizing via signed-in user (harshaditya2209@gmail.com)
+[debug] [2024-02-21T11:20:50.512Z] [iam] checking project diseasedet for permissions ["firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
+[debug] [2024-02-21T11:20:50.513Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/diseasedet:testIamPermissions [none]
+[debug] [2024-02-21T11:20:50.513Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/diseasedet:testIamPermissions x-goog-quota-user=projects/diseasedet
+[debug] [2024-02-21T11:20:50.513Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/diseasedet:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2024-02-21T11:20:52.192Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/diseasedet:testIamPermissions 200
+[debug] [2024-02-21T11:20:52.192Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/diseasedet:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2024-02-21T11:20:52.193Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/diseasedet [none]
+[debug] [2024-02-21T11:20:53.351Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/diseasedet 200
+[debug] [2024-02-21T11:20:53.351Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/diseasedet {"projectId":"diseasedet","projectNumber":"1062062460810","displayName":"DiseaseDet","name":"projects/diseasedet","resources":{"hostingSite":"diseasedet","realtimeDatabaseInstance":"diseasedet-default-rtdb","storageBucket":"diseasedet.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_d4c67d65-edcf-4347-abcd-db7cc07e5e1b"}
+[info] 
+[info] === Deploying to 'diseasedet'...
+[info] 
+[info] i  deploying storage, hosting 
+[info] i  storage: ensuring required API firebasestorage.googleapis.com is enabled... 
+[debug] [2024-02-21T11:20:53.353Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/diseasedet/services/firebasestorage.googleapis.com [none]
+[debug] [2024-02-21T11:20:53.353Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/diseasedet/services/firebasestorage.googleapis.com x-goog-quota-user=projects/diseasedet
+[debug] [2024-02-21T11:20:55.602Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/diseasedet/services/firebasestorage.googleapis.com 200
+[debug] [2024-02-21T11:20:55.602Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/diseasedet/services/firebasestorage.googleapis.com [omitted]
+[info] ✔  storage: required API firebasestorage.googleapis.com is enabled 
+[debug] [2024-02-21T11:20:55.603Z] >>> [apiv2][query] GET https://firebasestorage.googleapis.com/v1alpha/projects/diseasedet/defaultBucket [none]
+[debug] [2024-02-21T11:20:56.832Z] <<< [apiv2][status] GET https://firebasestorage.googleapis.com/v1alpha/projects/diseasedet/defaultBucket 200
+[debug] [2024-02-21T11:20:56.832Z] <<< [apiv2][body] GET https://firebasestorage.googleapis.com/v1alpha/projects/diseasedet/defaultBucket {"name":"projects/diseasedet/defaultBucket","location":"US","bucket":{"name":"projects/diseasedet/buckets/diseasedet.appspot.com"}}
+[info] i  firebase.storage: checking storage.rules for compilation errors... 
+[debug] [2024-02-21T11:20:56.833Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/diseasedet:test [none]
+[debug] [2024-02-21T11:20:56.833Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/diseasedet:test [omitted]
+[debug] [2024-02-21T11:20:58.673Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/diseasedet:test 200
+[debug] [2024-02-21T11:20:58.673Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/diseasedet:test {}
+[info] ✔  firebase.storage: rules file storage.rules compiled successfully 
+[debug] [2024-02-21T11:20:58.675Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/diseasedet/versions [none]
+[debug] [2024-02-21T11:20:58.675Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/diseasedet/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2024-02-21T11:21:00.311Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/diseasedet/versions 200
+[debug] [2024-02-21T11:21:00.311Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/diseasedet/versions {"name":"projects/1062062460810/sites/diseasedet/versions/203b520955c4338c","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2024-02-21T11:21:00.312Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/diseasedet/releases pageSize=10&pageToken=
