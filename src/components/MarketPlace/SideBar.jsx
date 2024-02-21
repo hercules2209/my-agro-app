@@ -34,18 +34,24 @@ const SideBar = (props) => {
           </button>
         </div>
         {cartItems.map((cartItem, index) => {
+        // Skip mapping for the first item (index = 0)
+          if (index === 0) {
+            return null;
+          }
+  
           const itemDetails = getItemDetails(cartItem.title);
           return (
-            <CartItemControl
-              key={index}
-              addItem={props.addItem}
-              removeItem={props.removeItemFromCart} 
-              quantity={cartItem.quantity}
-              title={cartItem.title}
-              image={itemDetails ? itemDetails.image : ''}
-            />
-          );
-        })}
+          <CartItemControl
+            key={index}
+            addItem={props.addItem}
+            removeItem={props.removeItemFromCart} 
+            quantity={cartItem.quantity}
+            title={cartItem.title}
+            image={itemDetails ? itemDetails.image : ''}
+          />
+  );
+})}
+
       </div>
     </div>
   );  

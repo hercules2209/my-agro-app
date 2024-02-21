@@ -30,7 +30,12 @@ function Signup() {
       const userEmail = userCredential.user.email.replace('.', '_');
       const db = getDatabase();
       const userCartRef = ref(db, `CART/${userEmail}`);
-      await set(userCartRef, { /* initial data for the user's cart */ });
+      await set(userCartRef, [{
+        "price": 0,
+        "quantity": 1,
+        "title": "Your mom"
+      }]);
+      navigate('/dashboard');
     } catch (error) {
       let errorMessage;
       switch (error.code) {
