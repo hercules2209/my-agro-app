@@ -4,6 +4,7 @@ import {  useNavigate } from 'react-router-dom';
 import 'tailwindcss/tailwind.css'; // Import Tailwind CSS
 import {auth} from '../firebase';
 import "./Loginsignup.css"
+import { getDatabase, ref, onValue, get,update ,push} from 'firebase/database';
 function Signup() {
   const [email, setEmail] = useState('');
   const [password,setPassword] = useState('');
@@ -25,6 +26,12 @@ function Signup() {
         throw new Error('Passwords do not match'); // Throw a custom error if passwords don't match
       }
       await createUserWithEmailAndPassword(auth, email, password);
+      
+      // After successful signup, create a new node for the user's cart in Firebase
+      const db = getDatabase();
+      const userCartRef = ref(db, `CART/${email.replace('.', '_')}`);
+      update(userCartRef, {}); // Create an empty node for the user's cart
+      
       navigate('/dashboard'); // Redirect to dashboard page upon successful signup
       window.location.reload(); // Reload the page after successful signup
     } catch (error) {
@@ -44,6 +51,7 @@ function Signup() {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="container mx-auto p-4" style={{backgroundImage:'url("https://img.freepik.com/premium-vector/abstract-pattern-background-with-futuristic-modern-style-concept_7505-2435.jpg");',height:"100vh"}}>
