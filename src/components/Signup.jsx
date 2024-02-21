@@ -4,7 +4,7 @@ import {  useNavigate } from 'react-router-dom';
 import 'tailwindcss/tailwind.css'; // Import Tailwind CSS
 import {auth} from '../firebase';
 import "./Loginsignup.css"
-import { set } from 'firebase/database';
+import { getDatabase, ref, set } from 'firebase/database';
 function Signup() {
   const [email, setEmail] = useState('');
   const [password,setPassword] = useState('');
@@ -17,7 +17,7 @@ function Signup() {
 
 
   const handleSubmit = async (e) => {
-    e.preventDefault();x
+    e.preventDefault();
   
     try {
       setError('');
