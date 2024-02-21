@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getDatabase, push, ref, set, onChildAdded } from 'firebase/database';
-import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import sendBtn from '../assets/send.svg';
 import { Fab } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import './GlobalChatroom.css';
-import Logo from '../assets/logo.png';
-import profile from '../assets/thirdweb.png';
 import { auth } from '../firebase';
 
 function App() {
@@ -14,7 +11,6 @@ function App() {
   const [msg, setMsg] = useState('');
 
   const user = auth.currentUser;
-  console.log(user);
   const db = getDatabase();
   const chatListRef = ref(db, 'chats');
 

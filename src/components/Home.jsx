@@ -63,10 +63,10 @@
             <div style={{display:"grid",marginTop:isMedia ?"0rem":"3rem"}}>
               <div style={{display:"flex", flexDirection:"column",justifyContent:isMedia ?"center":"left"}}>
               <h1 style={{fontSize:"40px",color:"grey" ,marginTop:isMedia ?"0rem":"4rem"}}>FAQ</h1>
-              <p>          
+              <span>          
                 <div className="accordion" style={{paddingRight:"4rem"}}> 
                   {accordionData.map(({ title, content }) => (<Accordion title={title} content={content} />))} 
-                </div></p>
+                </div></span>
             </div>
           </div>
           </div>

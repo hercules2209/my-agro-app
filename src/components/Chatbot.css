@@ -5,10 +5,9 @@
   font-size: 62.5%;
   margin: 0px;
   overflow: hidden;
-  
+  align-items: center;
+  justify-content: center;
 }
-
-
 
 .sideBar{
   flex:3;
@@ -16,6 +15,7 @@
 }
 .main{
   flex:9;
+  z-index: 1;
 }
 .logo{
   margin-right:1rem;
@@ -108,7 +108,8 @@
   overflow-y: auto;
   scroll-behavior: smooth;
   width: 100%;
-  max-width: 70rem;
+  max-width: 60vw;
+  margin-top: 8rem;
   height: calc(100vh - 17rem);
   text-align: justify; 
 
@@ -126,9 +127,9 @@
 }
 .chat{
   margin:1rem;
-  padding:2rem 3rem;
+  padding:1rem 1rem;
   font-size: 1.2rem;
-  border-radius: 10px;
+  border-radius: 100px;
   display:flex;
   align-items: flex-start;
   background-color: rgb(255, 255, 255);

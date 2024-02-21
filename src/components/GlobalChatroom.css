@@ -1,8 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.chat-container::-webkit-scrollbar{
+  width: 8px;
+}
+.chat-container::-webkit-scrollbar-track{
+  background: #fff;
+}
+.chat-container::-webkit-scrollbar-thumb{
+  background: grey;
+  border-radius: 4px;
+}
+.chat-container::-webkit-scrollbar-thumb:hover{
+  background: #117dc0;
+}
+
+
 .background{
-    background-image: url("https://img.freepik.com/premium-vector/abstract-pattern-background-with-futuristic-modern-style-concept_7505-2435.jpg");
-    top: 0;
-    bottom: 0;
-    height: 98vh;
+    background-image: url("https://img.freepik.com/premium-vector/abstract-pattern-background-with-futuristic-modern-style-concept_7505-2435.jpg"); 
+   height:98vh;
   }
   .chatbox{
     border-radius: 10px;
@@ -40,6 +57,10 @@
   }
   
   .chat-container{
+    position: absolute;
+    top:10rem;
+    left:15rem;
+    width: 80%;
     height: 75vh;
     overflow-y:scroll;
   }
@@ -77,29 +98,4 @@
   }
   
   
-  .Signup{
-    background-color: blueviolet;
-  }
-  .nav-profile{
-    display: flex;
-    flex-direction: row;
-    background-color: blueviolet;
-    margin-left: auto;
-    align-items: center;
-    color:white;
-    padding: 10px;
-    margin-right:10px;
-    border-radius: 10px;
-    img{
-        height: 2rem;
-        width: 2rem;
-        border-radius:100px;
-        margin-left: 1rem;
-    }
-  }
-  .logo{
-    height: 2rem;
-    width: 2rem;
-    border-radius:100px;
-    margin-left: 1rem;
-  }
+  

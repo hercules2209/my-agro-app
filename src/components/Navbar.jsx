@@ -43,7 +43,7 @@
 			<> 
 				<BrowserRouter>
 					{!isMobile &&
-					<div  style={{ display:"flex", background: "black", padding: "5px 0 5px 5px", fontSize: "20px", alignItems: "center",    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}>
+					<div  className="navLarge" style={{ display:"flex", background: "black", padding: "5px 0 5px 5px", fontSize: "20px", alignItems: "center",    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.29)" }}>
 						<div style={{ margin: "10px" }}>
 							<NavLink to="/" className={"Home"} style={({ isActive }) => ({color: isActive ? "greenyellow": "white",})}><div style={{display:"flex",flexDirection:"row"}}>
 								<img src={Logo} alt="Logo" className='logo'/>
@@ -76,7 +76,7 @@
 						</div>
 						}
 						{!loggedIn &&
-							<div style={{ margin: "10px" }}>
+							<div style={{ marginRight: "50px" }}>
 							<NavLink to="/signup" className={"Signup"} style={({ isActive }) => ({ color: isActive ? "rgb(255,238,0)" : "white", })}> Signin/Signup</NavLink>
 						</div>
 						}
@@ -85,7 +85,7 @@
 					}
 
 					{isMobile && 
-					<div  style={{  background: "black", fontSize: "20px", alignItems: "center",    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}>
+					<div  className="navSmall" style={{  background: "black", fontSize: "20px", alignItems: "center",    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}>
 						<div style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between",width:"100%"}}>
 							<div style={{display:"flex",flexDirection:"row", justifyContent:"left"}}>
 							<div style={{ margin:"10px" }}>

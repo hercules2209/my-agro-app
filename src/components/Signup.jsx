@@ -100,7 +100,7 @@ function Signup() {
         </form>
       </div>
       <div className="text-center mt-4">
-        Already have an account? <a href="/login" className="text-blue-500 hover:underline">Log In</a>
+        Already have an account? <button onClick={()=>navigate('/login')} className="text-blue-500 hover:underline">Log In</button>
         </div>
       </div>
     </div>

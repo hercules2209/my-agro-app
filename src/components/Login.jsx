@@ -69,13 +69,11 @@ function Login() {
           </button>
         </form>
         <div className="mt-4 text-center">
-          <Link to="/forgot-password" className="text-blue-500 hover:underline">
-            Forgot Password?
-          </Link>
+          <button onClick={()=>navigate('/forgot-password')} className="text-blue-500 hover:underline">Forgot Password?</button>
         </div>
       </div>
       <div className="text-center mt-4">
-        Need an account? <a href="/signup" className="text-blue-500 hover:underline">Sign Up</a>
+        Need an account? <button onClick={()=>navigate('/signup')} className="text-blue-500 hover:underline">Sign Up</button>
       </div>
       </div>
     </div>

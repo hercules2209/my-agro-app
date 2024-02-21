@@ -82,10 +82,9 @@ function Chatbot() {
 
   return (
     <div className="Main">
+      <div className="Empty"></div>
       <div className='sideBar'>
-
         <div className='upperSide'>
-
           <div className='upperSideTop'><img src={gptLogo} alt="Logo" className='logo'/><span className="brand">AgroBot</span></div>
 
           <button className='midBtn' onClick={()=>{window.location.reload()}}><img src={addBtn} alt="new chat" className='addBtn'/>New Chat</button>

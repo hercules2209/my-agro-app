@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import Signup from './Signup.jsx';
 import Login from './Login.jsx';
 import './Loginsignup.css';
+import { useNavigate } from "react-router-dom";
 
 function LoginSignup() {
   const [showLogin, setShowLogin] = useState(false);
+  const navigate = useNavigate();
 
   const toggleSection = () => {
     setShowLogin(!showLogin);
@@ -15,7 +17,7 @@ function LoginSignup() {
     <div className="" style={{display:"flex", flexDirection:"column",}} >
       <div className='test'></div>
       <div className='log-sign-form'>
-        {showLogin?<Signup />:<Login />}
+        {showLogin? (navigate("/signup")) : (navigate("/login")) }
       </div>
       <button className="the-switch"onClick={toggleSection}>
         {showLogin ? 'Switch to Signup' : 'Switch to Login'}

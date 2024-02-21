@@ -65,7 +65,8 @@ const ChatWithImageUpload = () => {
   });
 
   return (
-    <div className="App" style={{height:"100vh"}}>
+    <div className="background">
+    <div className="App" >
       <div style={{ alignContent: 'center' }}>
         {showUploadSection && (
           <div id="Upload">
@@ -127,6 +128,7 @@ const ChatWithImageUpload = () => {
         </div>
 
       </div>}
+    </div>
     </div>
   );
 };
