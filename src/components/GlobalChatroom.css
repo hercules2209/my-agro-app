@@ -2,17 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-.chat-container::-webkit-scrollbar{
-  width: 8px;
+::-webkit-scrollbar{
+  width: 5px;
+  height: 5px;
 }
-.chat-container::-webkit-scrollbar-track{
-  background: #fff;
+::-webkit-scrollbar-track{
+  background: transparent;
 }
-.chat-container::-webkit-scrollbar-thumb{
-  background: grey;
-  border-radius: 4px;
+::-webkit-scrollbar-thumb{
+  border-radius: 20px;
 }
-.chat-container::-webkit-scrollbar-thumb:hover{
+::-webkit-scrollbar-thumb:hover{
   background: #117dc0;
 }
 

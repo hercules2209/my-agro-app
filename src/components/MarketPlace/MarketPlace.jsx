@@ -197,16 +197,6 @@ function MarketPlace() {
   return (
     <div className='background'>
     <div className='market-main'>
-      <div className="cartPosition">
-      <Cart
-        cartItems={cartItems}
-        tools={tools}
-        seeds={seeds}
-        fertilizers={fertilizers}
-        removeItemFromCart={removeItemFromCart} // Pass removeItemFromCart function to Cart
-      />
-      </div>
-
       {displayEnhanced && (
         <ItemEnhanced
           close={() => setDisplayEnhanced(false)}
@@ -218,6 +208,15 @@ function MarketPlace() {
         />
       )}
       <div className='section-head'>
+      <div className="cartPosition">
+      <Cart
+        cartItems={cartItems}
+        tools={tools}
+        seeds={seeds}
+        fertilizers={fertilizers}
+        removeItemFromCart={removeItemFromCart} // Pass removeItemFromCart function to Cart
+      />
+      </div>
         <h1>Tools</h1>
       </div>
       <div className='scroll-menu'>{renderItems(tools)}</div>
@@ -230,7 +229,11 @@ function MarketPlace() {
       </div>
       <div className='scroll-menu'>{renderItems(fertilizers)}</div>
     </div>
+    <footer id='Home-footer'>Demo Created With 💀 By&nbsp;<a id="textblock-devsense" href="https://hercules2209.github.io/">El Primero</a>&copy;2024 Agrify</footer>
+
     </div>
+    
+
   );
 }
 
