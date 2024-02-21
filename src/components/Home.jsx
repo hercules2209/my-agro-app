@@ -104,7 +104,6 @@
                   </div>
                 </div>
               </div>
-          <footer id='Home-footer'>Demo Created With 💀 By&nbsp;<a id="textblock-devsense" href="https://hercules2209.github.io/">El Primero</a>&copy;2024 Agrify</footer>
         </div>
     );
   }

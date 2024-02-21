@@ -229,7 +229,7 @@ function MarketPlace() {
       </div>
       <div className='scroll-menu'>{renderItems(fertilizers)}</div>
     </div>
-    <footer id='Home-footer'>Demo Created With 💀 By&nbsp;<a id="textblock-devsense" href="https://hercules2209.github.io/">El Primero</a>&copy;2024 Agrify</footer>
+    <footer id='Market-footer'>Demo Created With 💀 By&nbsp;<a id="textblock-devsense" href="https://hercules2209.github.io/">El Primero</a>&copy;2024 Agrify</footer>
 
     </div>
     
