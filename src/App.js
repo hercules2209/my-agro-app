@@ -12,14 +12,14 @@ function App() {
    
     setTimeout(() => {
       setIsLoading(false); 
-    }, 2000); //in ms
+    }, 0); //in ms
   }, []); 
   return (
     <div className="App">
       {isLoading ? (
         <div className="loading">
           <div className="loader-container">
-            <p style={{fontSize:"60px"}}>Agro Bud is loading ..<Typewriter texts={texts} delay={300} infinite={true} /></p> 
+            <p style={{fontSize:"60px"}}>Agrify is loading ..<Typewriter texts={texts} delay={300} infinite={true} /></p> 
             <ClipLoader
               color={"#36d7b7"}
               loading={true}

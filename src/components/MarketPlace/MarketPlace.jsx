@@ -3,7 +3,9 @@ import './MarketPlace.css';
 import Card from './Card.jsx';
 import Cart from './Cart.jsx';
 import ItemEnhanced from './itemEnhanced.jsx';
-import { getDatabase, ref, onValue } from 'firebase/database';
+import { getDatabase, ref, onValue, get,update ,push} from 'firebase/database';
+import { useNavigate } from 'react-router-dom';
+import { auth } from '../../firebase.js';
 
 function MarketPlace() {
   const [tools, setTools] = useState([]);
@@ -12,54 +14,155 @@ function MarketPlace() {
   const [displayEnhanced, setDisplayEnhanced] = useState(false);
   const [enhancedContent, setEnhancedContent] = useState({});
   const [cartItems, setCartItems] = useState([]);
-
+  const navigate=useNavigate();
   useEffect(() => {
     const db = getDatabase();
-    const toolsRef = ref(db, 'tools');
-    const seedsRef = ref(db, 'seeds');
-    const fertilizersRef = ref(db, 'fertilizers');
+    const currentUser = auth.currentUser;
 
-    const fetchData = (snapshot, setter) => {
-      const data = snapshot.val();
-      if (data) {
-        setter(data);
-      }
-    };
+    if (currentUser) {
+      const userEmail = currentUser.email;
+      const userCartRef = ref(db, `CART/${userEmail.replace('.', '_')}`);
+      const toolsRef = ref(db, 'tools');
+      const seedsRef = ref(db, 'seeds');
+      const fertilizersRef = ref(db, 'fertilizers');
 
-    onValue(toolsRef, (snapshot) => fetchData(snapshot, setTools));
-    onValue(seedsRef, (snapshot) => fetchData(snapshot, setSeeds));
-    onValue(fertilizersRef, (snapshot) => fetchData(snapshot, setFertilizers));
+      get(userCartRef).then((snapshot) => {
+        const cartItems = snapshot.val();
+        if (cartItems) {
+          console.log(cartItems); // This should log the desired list
+          // Do something with the cart items here
+        } else {
+          console.log("No cart items found for the user");
+        }
+      });
+
+      const fetchData = (snapshot, setter) => {
+        const data = snapshot.val();
+        if (data) {
+          setter(data);
+        }
+      };
+      
+      
+      console.log(cartItems);
+      onValue(toolsRef, (snapshot) => fetchData(snapshot, setTools));
+      onValue(seedsRef, (snapshot) => fetchData(snapshot, setSeeds));
+      onValue(fertilizersRef, (snapshot) => fetchData(snapshot, setFertilizers));
+    } else {
+
+      const toolsRef = ref(db, 'tools');
+      const seedsRef = ref(db, 'seeds');
+      const fertilizersRef = ref(db, 'fertilizers');
+
+      const fetchData = (snapshot, setter) => {
+        const data = snapshot.val();
+        if (data) {
+          setter(data);
+        }
+      };
+
+      onValue(toolsRef, (snapshot) => fetchData(snapshot, setTools));
+      onValue(seedsRef, (snapshot) => fetchData(snapshot, setSeeds));
+      onValue(fertilizersRef, (snapshot) => fetchData(snapshot, setFertilizers));
+    }
   }, []);
+
+  useEffect(() => {
+    console.log("Cart Items:", cartItems);
+  }, [cartItems]);
 
   const toggleEnhanced = (contents) => {
     setEnhancedContent(contents);
     setDisplayEnhanced(!displayEnhanced);
   };
 
-  const removeItem = (item) => {
-    const updatedCartItems = cartItems.map((cartItem) =>
-      cartItem.title === item ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
-    );
-    setCartItems(updatedCartItems.filter((cartItem) => cartItem.quantity > 0));
-  };
+  const addItemToCart = (item, quantity) => {
+    console.log('Adding item to cart:', item);
+    const currentUser = auth.currentUser;
+    if (!currentUser) {
+      console.log("User not logged in.");
+      // navigate to /login use react uNavigate
+      navigate("/login");
 
-  const addItem = (item, image) => {
-    const existingItem = cartItems.find((cartItem) => cartItem.title === item);
-    if (existingItem) {
-      setCartItems(
-        cartItems.map((cartItem) =>
-          cartItem.title === item ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
-        )
-      );
-    } else {
-      setCartItems([...cartItems, { title: item, image, quantity: 1 }]);
+      return;
     }
+    const userEmail = currentUser.email;
+    const db = getDatabase();
+    const cartRef = ref(db, `CART/${userEmail.replace('.', '_')}`);
+    
+    get(cartRef).then((snapshot) => {
+      const existingCart = snapshot.val();
+      let updatedCartItems = existingCart ? [...existingCart] : []; // Preserve existing items or initialize new array
+      const existingItemIndex = updatedCartItems.findIndex((cartItem) => cartItem.title === item.name);
+  
+      if (existingItemIndex !== -1) {
+        updatedCartItems[existingItemIndex].quantity += quantity;
+      } else {
+        updatedCartItems.push({ title: item.name, quantity: quantity, price: item.price });
+      }
+  
+      // Convert array to object with Firebase's push key
+      const updatedCart = updatedCartItems.reduce((acc, curr, index) => {
+        acc[index] = curr;
+        return acc;
+      }, {});
+  
+      // Update cart in database
+      update(cartRef, updatedCart)
+        .then(() => {
+          console.log('Cart updated:', updatedCartItems);
+          setCartItems(updatedCartItems); // Update local state
+        })
+        .catch((error) => {
+          console.error('Error updating cart:', error);
+        });
+    }).catch((error) => {
+      console.error('Error fetching cart data:', error);
+    });
+  };  
+  const removeItemFromCart = (itemTitle) => {
+    console.log('Removing item from cart:', itemTitle);
+    const currentUser = auth.currentUser;
+    if (!currentUser) {
+      console.log("User not logged in.");
+      navigate("/login");
+      return;
+    }
+    const userEmail = currentUser.email;
+    const db = getDatabase();
+    const cartRef = ref(db, `CART/${userEmail.replace('.', '_')}`);
+    
+    get(cartRef).then((snapshot) => {
+      const existingCart = snapshot.val();
+      if (!existingCart) {
+        console.log("Cart is empty.");
+        return;
+      }
+  
+      // Filter out the item to remove
+      const updatedCartItems = existingCart.filter((cartItem) => cartItem.title !== itemTitle);
+  
+      // Convert array to object with Firebase's push key
+      const updatedCart = updatedCartItems.reduce((acc, curr, index) => {
+        acc[index] = curr;
+        return acc;
+      }, {});
+  
+      // Update cart in database
+      update(cartRef, updatedCart)
+        .then(() => {
+          console.log('Item removed from cart:', itemTitle);
+          setCartItems(updatedCartItems); // Update local state
+        })
+        .catch((error) => {
+          console.error('Error updating cart:', error);
+        });
+    }).catch((error) => {
+      console.error('Error fetching cart data:', error);
+    });
   };
-
-  const handleEnhance = (contents) => {
-    setEnhancedContent(contents);
-    setDisplayEnhanced(true);
-  };
+    
+  
 
   const renderItems = (items) => {
     return items.map((item, index) => (
@@ -68,8 +171,8 @@ function MarketPlace() {
         image={item.image}
         name={item.name}
         rating={item.rating}
-        addItem={addItem}
-        enhance={handleEnhance} // Pass the handleEnhance function
+        addItem={() => addItemToCart(item, 1)} // Add one item at a time
+        enhance={toggleEnhanced} // Pass the toggleEnhanced function
         desc={item.desc}
         price={item.price}
       />
@@ -78,14 +181,14 @@ function MarketPlace() {
 
   return (
     <div className='market-main'>
-      <Cart cartItems={cartItems} increase={addItem} decrease={removeItem} />
+      <Cart cartItems={cartItems} />
       {displayEnhanced && (
         <ItemEnhanced
           close={() => setDisplayEnhanced(false)}
           title={enhancedContent.title}
           desc={enhancedContent.desc}
           image={enhancedContent.image}
-          addItem={addItem}
+          addItem={() => addItemToCart(enhancedContent, 1)}
           price={enhancedContent.price}
         />
       )}
