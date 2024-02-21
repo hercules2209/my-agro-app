@@ -20,7 +20,6 @@ function Login() {
       setLoading(true);
       await signInWithEmailAndPassword(auth, email, password); // Use Firebase's signInWithEmailAndPassword
       navigate('/dashboard'); // Redirect to home page upon successful login
-      window.location.reload() 
     } catch (error) {
       setError('The given Username or Password is wrong.'); // Display a more specific error message
     } finally {

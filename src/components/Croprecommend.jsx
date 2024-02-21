@@ -127,8 +127,8 @@ return (
             )}
       {/* Output Section */}
       {isResultVisible && (
-        <div className='result-container items-center justify-center h-screen'>
-          <div className="result-box rounded shadow-md px-6 md:px-10" style={{backgroundColor:"white"}}>
+        <div className='result-container flex items-center justify-center h-screen'>
+          <div className="result-box rounded shadow-md px-6 md:px-10" style={{backgroundColor:"whi  te"}}>
             <h3 className="font-semibold text-xl text-gray-600">Recommendation Result</h3>
             <div className='flex flex-col md:flex-row items-center justify-between'>
               <div className='flex flex-col items-center md:items-start'>

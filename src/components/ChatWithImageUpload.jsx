@@ -82,7 +82,7 @@ const ChatWithImageUpload = () => {
         {!showUploadSection && (
           <div id="Display">
             <aside>
-              <h4 style={{ textAlign: 'center' }}>Files</h4>
+              <h4 style={{ textAlign: 'center', paddingTop:'10rem'}}>Files</h4>
             </aside>
             {previewSource && (
               <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -129,6 +129,7 @@ const ChatWithImageUpload = () => {
 
       </div>}
     </div>
+    <footer id='detect-footer'>Demo Created With 💀 By&nbsp;<a id="textblock-devsense" href="https://hercules2209.github.io/">Agrify.co</a> &copy;2024 Agrify</footer>
     </div>
   );
 };

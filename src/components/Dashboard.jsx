@@ -23,7 +23,6 @@ function Dashboard() {
   
     try {
       await signOut(auth); // Use signOut from Firebase
-      window.location.reload()  
       navigate('/login');
     } catch (error) {
       setError('Failed to log out');
