@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './MarketPlace.css';
 import variant from './cart-variant.svg';
 import SideBar from './SideBar';
 
 function Cart(props) {
-  const [cartState, setCartState] = useState(props.cartItems);
-  const [cartButtonContent, setCartButton] = useState("View Cart");
+  const { cartItems, tools, seeds, fertilizers } = props;
   const [sidebarOpen, setSideBarOpen] = useState(false);
-
-  useEffect(() => {
-    // Update cartState when props.cartItems changes
-    setCartState(props.cartItems);
-  }, [props.cartItems]);
+  const [cartButtonContent, setCartButton] = useState("View Cart");
 
   const handleViewSidebar = () => {
     setSideBarOpen(!sidebarOpen);
@@ -25,11 +20,15 @@ function Cart(props) {
         <img src={variant} alt="cart" />
       </div>
       <SideBar
-        cartItems={cartState} // Pass cartState instead of props.cartItems
+        cartItems={cartItems}
+        
+        tools={tools}
+        seeds={seeds}
+        fertilizers={fertilizers}
         isOpen={sidebarOpen}
         toggleSideBar={handleViewSidebar}
-        increase={props.increase}
-        decrease={props.decrease}
+        removeItemFromCart={props.removeItemFromCart} 
+        addItem={props.addItem}
       />
     </div>
   );

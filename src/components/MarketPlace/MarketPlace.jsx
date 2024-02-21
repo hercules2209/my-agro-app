@@ -131,36 +131,51 @@ function MarketPlace() {
     const userEmail = currentUser.email;
     const db = getDatabase();
     const cartRef = ref(db, `CART/${userEmail.replace('.', '_')}`);
-    
-    get(cartRef).then((snapshot) => {
-      const existingCart = snapshot.val();
-      if (!existingCart) {
-        console.log("Cart is empty.");
-        return;
-      }
   
-      // Filter out the item to remove
-      const updatedCartItems = existingCart.filter((cartItem) => cartItem.title !== itemTitle);
+    get(cartRef)
+      .then((snapshot) => {
+        const existingCart = snapshot.val();
+        if (!existingCart) {
+          console.log("Cart is empty.");
+          return;
+        }
   
-      // Convert array to object with Firebase's push key
-      const updatedCart = updatedCartItems.reduce((acc, curr, index) => {
-        acc[index] = curr;
-        return acc;
-      }, {});
+        // Find the item in the cart
+        const updatedCartItems = existingCart.map((cartItem) => {
+          if (cartItem.title === itemTitle) {
+            // Reduce the quantity by 1 if it's greater than 1
+            if (cartItem.quantity > 1) {
+              cartItem.quantity -= 1;
+            } else {
+              // If quantity is 1, remove the item completely
+              return null;
+            }
+          }
+          return cartItem;
+        }).filter(Boolean); // Filter out null values (items with quantity 1)
   
-      // Update cart in database
-      update(cartRef, updatedCart)
-        .then(() => {
-          console.log('Item removed from cart:', itemTitle);
-          setCartItems(updatedCartItems); // Update local state
-        })
-        .catch((error) => {
-          console.error('Error updating cart:', error);
-        });
-    }).catch((error) => {
-      console.error('Error fetching cart data:', error);
-    });
+        // Convert array to object with Firebase's push key
+        const updatedCart = updatedCartItems.reduce((acc, curr, index) => {
+          acc[index] = curr;
+          return acc;
+        }, {});
+  
+        // Update cart in database
+        update(cartRef, updatedCart)
+          .then(() => {
+            console.log('Item removed from cart:', itemTitle);
+            setCartItems(updatedCartItems); // Update local state
+          })
+          .catch((error) => {
+            console.error('Error updating cart:', error);
+          });
+      })
+      .catch((error) => {
+        console.error('Error fetching cart data:', error);
+      });
   };
+  
+  
     
   
 
@@ -181,7 +196,14 @@ function MarketPlace() {
 
   return (
     <div className='market-main'>
-      <Cart cartItems={cartItems} />
+      <Cart
+        cartItems={cartItems}
+        tools={tools}
+        seeds={seeds}
+        fertilizers={fertilizers}
+        removeItemFromCart={removeItemFromCart} // Pass removeItemFromCart function to Cart
+      />
+
       {displayEnhanced && (
         <ItemEnhanced
           close={() => setDisplayEnhanced(false)}

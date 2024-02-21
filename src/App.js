@@ -12,7 +12,7 @@ function App() {
    
     setTimeout(() => {
       setIsLoading(false); 
-    }, 0); //in ms
+    }, 2000); //in ms
   }, []); 
   return (
     <div className="App">

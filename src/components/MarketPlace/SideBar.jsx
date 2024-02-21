@@ -1,10 +1,21 @@
 import React from "react";
 import CartItemControl from "./CartItemControl";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import {useNavigate} from 'react-router-dom'
 
 const SideBar = (props) => {
-  const sidebarClass = props.isOpen ? "sidebar open" : "sidebar";
-  const overlayClass = props.isOpen ? "market-overlay on" : "market-overlay off";
+  const navigate = useNavigate();
+  const { isOpen, cartItems, tools, seeds, fertilizers } = props;
+  const sidebarClass = isOpen ? "sidebar open" : "sidebar";
+  const overlayClass = isOpen ? "market-overlay on" : "market-overlay off";
+
+  const getItemDetails = (itemName) => {
+    const allItems = [];
+    if (Array.isArray(tools)) allItems.push(...tools);
+    if (Array.isArray(seeds)) allItems.push(...seeds);
+    if (Array.isArray(fertilizers)) allItems.push(...fertilizers);
+    return allItems.find(item => item.name === itemName);
+  };
 
   return (
     <div>
@@ -18,24 +29,26 @@ const SideBar = (props) => {
             />
             <h1>My Cart</h1>
           </div>
-          <button className="checkout">
-            <a href="/comingsoon">Checkout</a>
+          <button className="checkout" onClick={() => navigate("/comingsoon")}>
+            Checkout
           </button>
         </div>
-        {Array.isArray(props.cartItems) &&
-          props.cartItems.map((item, index) => (
+        {cartItems.map((cartItem, index) => {
+          const itemDetails = getItemDetails(cartItem.title);
+          return (
             <CartItemControl
               key={index}
-              increase={props.increase}
-              decrease={props.decrease}
-              quantity={item.quantity}
-              title={item.title}
-              image={item.image}
+              addItem={props.addItem}
+              removeItem={props.removeItemFromCart} 
+              quantity={cartItem.quantity}
+              title={cartItem.title}
+              image={itemDetails ? itemDetails.image : ''}
             />
-          ))}
+          );
+        })}
       </div>
     </div>
-  );
+  );  
 };
 
 export default SideBar;

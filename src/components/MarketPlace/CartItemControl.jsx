@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaPlus } from "react-icons/fa6";
-import { FaMinus } from "react-icons/fa";
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 function CartItemControl(props) {
   const [quantity, setQuantity] = useState(props.quantity);
@@ -11,12 +10,11 @@ function CartItemControl(props) {
 
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
-    props.increase(props.title);
+    props.addItem(props.title); // Pass the entire item object
   };
 
   const decreaseQuantity = () => {
-    setQuantity(quantity - 1);
-    props.decrease(props.title);
+    props.removeItem(props.title); 
   };
 
   if (quantity > 0) {
