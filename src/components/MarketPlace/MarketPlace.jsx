@@ -195,7 +195,9 @@ function MarketPlace() {
   };
 
   return (
+    <div className='background'>
     <div className='market-main'>
+      <div className="cartPosition">
       <Cart
         cartItems={cartItems}
         tools={tools}
@@ -203,6 +205,7 @@ function MarketPlace() {
         fertilizers={fertilizers}
         removeItemFromCart={removeItemFromCart} // Pass removeItemFromCart function to Cart
       />
+      </div>
 
       {displayEnhanced && (
         <ItemEnhanced
@@ -226,6 +229,7 @@ function MarketPlace() {
         <h1>Fertilizers</h1>
       </div>
       <div className='scroll-menu'>{renderItems(fertilizers)}</div>
+    </div>
     </div>
   );
 }
