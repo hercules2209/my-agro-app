@@ -1,4 +1,4 @@
-  import React,{useState} from 'react';
+  import React from 'react';
   import './Home.css';
   import Typewriter from './Typewriter';
   import Imageslider from './Imageslider';
@@ -11,7 +11,6 @@
   import { IoLogoLinkedin } from "react-icons/io5";
   function Home() {
     const isMedia = useMediaQuery({ maxWidth: 920 });
-		const [menuFlex,setMenuFlex] = useState(false);
 
     
     const texts=[
