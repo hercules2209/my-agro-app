@@ -1,5 +1,5 @@
   import React from 'react';
-  import './Home.css';
+  import './Joshua-css/Home.css';
   import Typewriter from './Typewriter';
   import Imageslider from './Imageslider';
   import { useMediaQuery } from 'react-responsive';
@@ -31,20 +31,20 @@
             <div id="textblock-container">
                 <h1 id="textblock-title">What is my Agrify?</h1>
                 <p id="textblock-content" style={{color:"grey", fontSize:"30px"}}><Typewriter texts={texts} infinite={true} /></p>
-                <p id="textblock-content">At Agrify, we are not just a platform; we are the heartbeat of a revolutionary agricultural experience. Rooted in a passion for sustainable farming and technological advancement, we bring you a seamless blend of cutting-edge solutions that empower farmers like never before.<br></br>
-                  🌱 <b>Precision Agriculture Redefined</b>:
+                <p id="textblock-content">At Agrify, we are not just a platform; we are the heartbeat of a revolutionary agricultural experience. Rooted in a passion for sustainable farming and technological advancement, we bring you a seamless blend of cutting-edge solutions that empower farmers like never before.<br></br><br/>
+                  🌱 <b>Precision Agriculture Redefined</b><br/>
                   Witness the future of farming with our state-of-the-art plant disease detection technology. We believe in proactive care, ensuring your crops thrive with the precision they deserve. Agrify provides real-time insights and historical weather data, arming you with the knowledge to cultivate with confidence.
-                  <br></br>
-                  🚀 <b>Accurate Crop Recommendations</b>:
+                  <br></br><br/>
+                  🚀 <b>Accurate Crop Recommendations</b><br/>
                   Our commitment to your success extends beyond disease detection. Agrify's intelligent algorithms leverage real-time and historical weather data specific to your region, delivering accurate crop recommendations that elevate your yield potential. Say goodbye to guesswork; embrace the science of precision farming.
-                  <br></br>
-                  💬 <b>Your Farming Companion–Anytime, Anywhere</b>:
+                  <br></br><br/>
+                  💬 <b>Your Farming Companion–Anytime, Anywhere</b><br/>
                   Meet your virtual agricultural advisor–our responsive chatbot. Whether you're seeking guidance on crop health or need timely healthcare recommendations for your plants, Agrify's chatbot is your 24/7 companion, ensuring you make informed decisions at every stage of cultivation.
-                  <br></br>
-                  🌐 <b>Marketplace for Agricultural Excellence</b>:
+                  <br></br><br/>
+                  🌐 <b>Marketplace for Agricultural Excellence</b><br/>
                   Browse our curated marketplace where farmers connect with quality suppliers. From essential farming materials to cutting-edge tools, Agrify's marketplace is your one-stop destination for everything you need to nurture a thriving harvest.
-                  <br></br>
-                  🤝 <b>Join the Agrify Movement</b>:
+                  <br></br><br/>
+                  🤝 <b>Join the Agrify Movement</b><br/>
                   More than a platform, Agrify is a community of forward-thinking farmers, embracing technology to transform agriculture. Together, we cultivate not just crops but a sustainable future for generations to come.
                 </p>
             </div>

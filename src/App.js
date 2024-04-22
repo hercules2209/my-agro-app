@@ -12,7 +12,7 @@ function App() {
    
     setTimeout(() => {
       setIsLoading(false); 
-    }, 2000); //in ms
+    }, 0); //in ms
   }, []); 
   return (
     <div className="App">
@@ -34,7 +34,6 @@ function App() {
       ) : (
         <div>
           <Navbar />
-          {/* Add more components here */}
         </div>
       )}
     </div>

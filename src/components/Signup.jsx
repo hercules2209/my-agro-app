@@ -56,7 +56,7 @@ function Signup() {
   
 
   return (
-    <div className="container mx-auto p-4" style={{backgroundImage:'url("https://img.freepik.com/premium-vector/abstract-pattern-background-with-futuristic-modern-style-concept_7505-2435.jpg");',height:"100vh"}}>
+    <div className="container mx-auto p-4" style={{'height':"100vh"}}>
       <div></div>
       <div className="bg-white p-4 rounded-lg shadow-md log-sign-form">
         <h2 className="text-center text-2xl font-medium mb-4">Sign Up</h2>

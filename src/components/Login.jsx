@@ -28,7 +28,7 @@ function Login() {
   };
 
   return (
-    <div className=''style={{backgroundImage:'url("https://img.freepik.com/premium-vector/abstract-pattern-background-with-futuristic-modern-style-concept_7505-2435.jpg");',height:"100vh"}}>
+    <div className=''style={{height:"100vh"}}>
     <div className="container mx-auto p-4">
       <div className="bg-white p-4 rounded-lg shadow-md log-sign-form">
         <h2 className="text-center text-2xl font-medium mb-4">Log In</h2>

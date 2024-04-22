@@ -6,7 +6,7 @@ import './Imageslider.css';
 function Imageslider() {
   const slides = [
     {
-      url: require('../assets/images/Agrify.jpg'),
+      url: require('../assets/images/Agrify2.jpg'),
     },
     {
       url: require('../assets/images/leaf_rust.png'),

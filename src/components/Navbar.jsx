@@ -17,7 +17,7 @@
 	import Logo from "../assets/logo.png"
 	import Login from './Login.jsx';
 	import Signup from './Signup.jsx';
-	import './Navbar.css'
+	import './Joshua-css/Navbar.css';
 
 	function Navbar() {
 		const [loggedIn,setLoggedIn]=useState(false);
@@ -43,7 +43,7 @@
 			<> 
 				<BrowserRouter>
 					{!isMobile &&
-					<div  className="navLarge" style={{ display:"flex", background: "black", padding: "5px 0 5px 5px", fontSize: "20px", alignItems: "center",    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.29)" }}>
+					<div  className="navLarge" >
 						<div style={{ margin: "10px" }}>
 							<NavLink to="/" className={"Home"} style={({ isActive }) => ({color: isActive ? "greenyellow": "white",})}><div style={{display:"flex",flexDirection:"row"}}>
 								<img src={Logo} alt="Logo" className='logo'/>
@@ -135,7 +135,7 @@
 					}
 
 					<Routes>
-						<Route exact path="/" element={<Home />} />
+						<Route exact path="/" element={<Home style={{'display':'none'}}/>} />
 						<Route exact path="/services" element={<Chatbot />} />
 						<Route exact path="/disease" element={<ChatWithImageUpload />} />
 						<Route exact path="/recommend" element={<Croprecommend />} />
