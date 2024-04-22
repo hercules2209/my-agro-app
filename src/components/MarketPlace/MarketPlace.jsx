@@ -29,8 +29,8 @@ function MarketPlace() {
       get(userCartRef).then((snapshot) => {
         const cartItems = snapshot.val();
         if (cartItems) {
-          console.log(cartItems); // This should log the desired list
-          // Do something with the cart items here
+          console.log(cartItems); 
+
         } else {
           console.log("No cart items found for the user");
         }
@@ -73,6 +73,7 @@ function MarketPlace() {
 
   const toggleEnhanced = (contents) => {
     setEnhancedContent(contents);
+    console.log('Toggling enhanced display:', contents);
     setDisplayEnhanced(!displayEnhanced);
   };
 
@@ -81,45 +82,52 @@ function MarketPlace() {
     const currentUser = auth.currentUser;
     if (!currentUser) {
       console.log("User not logged in.");
-      // navigate to /login use react uNavigate
       navigate("/login");
-
       return;
     }
     const userEmail = currentUser.email;
     const db = getDatabase();
     const cartRef = ref(db, `CART/${userEmail.replace('.', '_')}`);
-    
-    get(cartRef).then((snapshot) => {
-      const existingCart = snapshot.val();
-      let updatedCartItems = existingCart ? [...existingCart] : []; // Preserve existing items or initialize new array
-      const existingItemIndex = updatedCartItems.findIndex((cartItem) => cartItem.title === item.name);
   
-      if (existingItemIndex !== -1) {
-        updatedCartItems[existingItemIndex].quantity += quantity;
-      } else {
-        updatedCartItems.push({ title: item.name, quantity: quantity, price: item.price });
-      }
+    // Fetch existing cart data
+    get(cartRef)
+      .then((snapshot) => {
+        const existingCart = snapshot.val() || {};
+        let updatedCart = { ...existingCart };
   
-      // Convert array to object with Firebase's push key
-      const updatedCart = updatedCartItems.reduce((acc, curr, index) => {
-        acc[index] = curr;
-        return acc;
-      }, {});
+        // Check if item already exists in the cart
+        const existingItemIndex = Object.keys(updatedCart).find(
+          (key) => updatedCart[key].title === item.title
+        );
   
-      // Update cart in database
-      update(cartRef, updatedCart)
-        .then(() => {
-          console.log('Cart updated:', updatedCartItems);
-          setCartItems(updatedCartItems); // Update local state
-        })
-        .catch((error) => {
-          console.error('Error updating cart:', error);
-        });
-    }).catch((error) => {
-      console.error('Error fetching cart data:', error);
-    });
-  };  
+        if (existingItemIndex) {
+          // If item already exists, update its quantity
+          updatedCart[existingItemIndex].quantity += quantity;
+        } else {
+          // If item does not exist, add it to the cart
+          const newItemKey = Object.keys(updatedCart).length; // Generate a unique key
+          updatedCart[newItemKey] = {
+            title: item.title,
+            quantity: quantity,
+            price: item.price,
+          };
+        }
+  
+        // Update cart in database
+        update(cartRef, updatedCart)
+          .then(() => {
+            console.log('Cart updated:', updatedCart);
+            setCartItems(Object.values(updatedCart)); // Update local state
+          })
+          .catch((error) => {
+            console.error('Error updating cart:', error);
+          });
+      })
+      .catch((error) => {
+        console.error('Error fetching cart data:', error);
+      });
+  };
+  
   const removeItemFromCart = (itemTitle) => {
     console.log('Removing item from cart:', itemTitle);
     const currentUser = auth.currentUser;
@@ -215,6 +223,7 @@ function MarketPlace() {
         seeds={seeds}
         fertilizers={fertilizers}
         removeItemFromCart={removeItemFromCart} // Pass removeItemFromCart function to Cart
+        addItem={addItemToCart} // Pass addItemToCart function to Cart
       />
       </div>
         <h1>Tools</h1>

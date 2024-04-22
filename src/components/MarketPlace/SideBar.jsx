@@ -1,11 +1,11 @@
 import React from "react";
 import CartItemControl from "./CartItemControl";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const SideBar = (props) => {
   const navigate = useNavigate();
-  const { isOpen, cartItems, tools, seeds, fertilizers } = props;
+  const { isOpen, cartItems, tools, seeds, fertilizers, addItem, removeItemFromCart } = props;
   const sidebarClass = isOpen ? "sidebar open" : "sidebar";
   const overlayClass = isOpen ? "market-overlay on" : "market-overlay off";
 
@@ -34,27 +34,26 @@ const SideBar = (props) => {
           </button>
         </div>
         {cartItems.map((cartItem, index) => {
-        // Skip mapping for the first item (index = 0)
+          // Skip mapping for the first item (index = 0)
           if (index === 0) {
             return null;
           }
-  
+
           const itemDetails = getItemDetails(cartItem.title);
           return (
-          <CartItemControl
-            key={index}
-            addItem={props.addItem}
-            removeItem={props.removeItemFromCart} 
-            quantity={cartItem.quantity}
-            title={cartItem.title}
-            image={itemDetails ? itemDetails.image : ''}
-          />
-  );
-})}
-
+            <CartItemControl
+              key={index}
+              addItem={addItem}
+              removeItem={removeItemFromCart}
+              quantity={cartItem.quantity}
+              title={cartItem.title}
+              image={itemDetails ? itemDetails.image : ''}
+            />
+          );
+        })}
       </div>
     </div>
-  );  
+  );
 };
 
 export default SideBar;
