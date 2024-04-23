@@ -1,5 +1,5 @@
   import React from 'react';
-  import './Joshua-css/Home.css';
+  import '../Joshua-css/Home.css';
   import Typewriter from './Typewriter';
   import Imageslider from './Imageslider';
   import { useMediaQuery } from 'react-responsive';

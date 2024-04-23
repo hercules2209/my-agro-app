@@ -17,7 +17,7 @@
 	import Logo from "../assets/logo.png"
 	import Login from './Login.jsx';
 	import Signup from './Signup.jsx';
-	import './Joshua-css/Navbar.css';
+	import '../Joshua-css/Navbar.css';
 
 	function Navbar() {
 		const [loggedIn,setLoggedIn]=useState(false);
@@ -44,40 +44,40 @@
 				<BrowserRouter>
 					{!isMobile &&
 					<div  className="navLarge" >
-						<div style={{ margin: "10px" }}>
-							<NavLink to="/" className={"Home"} style={({ isActive }) => ({color: isActive ? "greenyellow": "white",})}><div style={{display:"flex",flexDirection:"row"}}>
+						<div >
+							<NavLink to="/" className={"Home"} style={({ isActive }) => ({color: isActive ? "greenyellow": "white","padding":"0"})}><div style={{display:"flex",flexDirection:"row"}}>
 								<img src={Logo} alt="Logo" className='logo'/>
 								Agrify</div>
 								  </NavLink>
 						</div>
 						<div className='droplinks' style={{display:"flex", flexDirection:"row"}}>
-						<div style={{ margin: "10px" }}>
+						<div >
 							<NavLink to="/services" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white",})}> Chatbot </NavLink>
 						</div>
-						<div style={{ margin: "10px" }}>
+						<div >
 							<NavLink to="/disease" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white",})}> Detection </NavLink>
 						</div>
-						<div style={{ margin: "10px" }}>
+						<div >
 							<NavLink to="/recommend" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white", })}> Crop Recommendation </NavLink>
 						</div> 
-						<div style={{margin:"10px"}}>
+						<div >
 							<NavLink to="/market" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white", })}> Market </NavLink>
 						</div>
-						<div style={{margin:"10px"}}>
+						<div >
 							<NavLink to="/globalChatroom" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white", })}> Global Chatroom </NavLink>
 						</div>
 						</div>
-						<div style={{flexGrow:10}}>
+						<div style={{flexGrow:5}}>
 						</div>
 					<div>
 						{loggedIn && 
-						<div style={{ margin: "10px" }}>
+						<div >
 							<NavLink to="/dashboard" className={"nav-profile"} style={({ isActive }) => ({ color: isActive ? "rgb(255,238,0)" : "white", })}> {displayName} <img src={imagePreview} alt=''/> </NavLink>
 						</div>
 						}
 						{!loggedIn &&
-							<div style={{ marginRight: "50px" }}>
-							<NavLink to="/signup" className={"Signup"} style={({ isActive }) => ({ color: isActive ? "rgb(255,238,0)" : "white", })}> Signin/Signup</NavLink>
+							<div style={{ marginRight: "5px" }}>
+							<NavLink to="/signup" className={"Signup"} style={({ isActive }) => ({ color: isActive ? "rgb(255,238,0)" : "white", })}> Login|SignUp</NavLink>
 						</div>
 						}
 					</div>
@@ -88,10 +88,10 @@
 					<div  className="navSmall" style={{  background: "black", fontSize: "20px", alignItems: "center",    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}>
 						<div style={{display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"space-between",width:"100%"}}>
 							<div style={{display:"flex",flexDirection:"row", justifyContent:"left"}}>
-							<div style={{ margin:"10px" }}>
+							<div style={{ margin:"5px" }}>
 								<RxHamburgerMenu onClick={toggleMenu} color='white' size={20}/>
          				 	</div>
-							<div style={{ marginLeft: "10px" ,marginTop: "10px", marginBottom:"10px"	  }}>
+							<div style={{ marginLeft: "5px" ,marginTop: "5px", marginBottom:"5px"	  }}>
 								<NavLink to="/" className={"Home"} style={({ isActive }) => ({color: isActive ? "greenyellow": "white",})}>
 								{/* <div style={{display:"flex",flexDirection:"row"}}> */}
 								{/* <img src={Logo} alt="Logo" className='logo'/> */}
@@ -101,12 +101,12 @@
 							</div>
 							</div>
 							{loggedIn && 
-								<div style={{ margin: "10px" }}>
+								<div style={{ margin: "5px" }}>
 									<NavLink to="/dashboard" className={"nav-profile"} style={({ isActive }) => ({ color: isActive ? "rgb(255,238,0)" : "white", })}> {displayName} <img src={imagePreview} alt=''/> </NavLink>
 								</div>
 							}
 							{!loggedIn &&
-								<div style={{ margin: "10px" }}>
+								<div style={{ margin: "5px" }}>
 									<NavLink to="/signup" className={"Signup"} style={({ isActive }) => ({ color: isActive ? "rgb(255,238,0)" : "white", })}> Signin/Signup</NavLink>
 								</div>
 							}
@@ -114,19 +114,19 @@
 						</div>
 						{ menuVisible &&
 						<div onChange={toggleMenu} className='droplinks'>
-						<div style={{ margin: "10px" }}>
+						<div >
 							<NavLink to="/services" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white",})}> Chatbot </NavLink>
 						</div>
-						<div style={{ margin: "10px" }}>
+						<div >
 							<NavLink to="/disease" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white",})}> Detection </NavLink>
 						</div>
-						<div style={{ margin: "10px" }}>
+						<div >
 							<NavLink to="/recommend" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white", })}> Crop Recommendation </NavLink>
 						</div> 
-						<div style={{margin:"10px"}}>
+						<div >
 							<NavLink to="/market" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white", })}> Market </NavLink>
 						</div>
-						<div style={{margin:"10px"}}>
+						<div >
 							<NavLink to="/globalChatroom" className={"navlinks"} style={({ isActive }) => ({ color: isActive ? "greenyellow" : "white", })}> Global Chatroom</NavLink>
 						</div>
 						</div>

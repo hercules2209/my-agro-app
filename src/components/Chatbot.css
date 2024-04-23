@@ -156,8 +156,6 @@
 }
 .inp{
   padding:0.5rem;
-  background: rgba(28,30,58,1);
-  border:solid 2px gray;
   display:flex;
   align-items: center;
   border-radius: 2rem;
@@ -169,7 +167,7 @@
 .inp>input{
   width:calc(100% - 3rem);
   outline:none;
-  padding:1.25rem;
+  /* padding:1.25rem; */
   color:white;
 }
 .inp>input, .send{

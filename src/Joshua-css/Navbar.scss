@@ -1,0 +1,70 @@
+@import url(./Assets.css);
+.Signup{
+    background-color: var(--sage);
+    border-radius: 15px;
+    padding: 1em;
+    &:hover {
+        background-color: var(--dark-sage);
+    }
+}
+
+.nav-profile{
+    display: flex;
+    flex-direction: row;
+    background-color: #87A922;
+    margin-left: auto;
+    align-items: center;
+    padding: 15px 25px 15px 25px;
+    margin-right: 25px;
+    border-radius: 10px;
+    img{
+        height: 2rem;
+        width: 2rem;
+        border-radius:100px;
+        margin-left: 1rem;
+    }
+   
+}
+.logo{
+    height: 2rem;
+    width: 2rem;
+    border-radius:100px;
+    margin-left: 1rem;
+}
+.navlinks {
+    color: var(--white-green);
+    padding:1em;
+    margin: 1em;
+    border-radius: 2em;
+    &:hover{
+        background-color: var(--dark-sage);
+    }
+    a {
+        padding: 3em;
+    }
+
+}
+.Home{
+    padding:0;
+    margin: "5px";
+}
+
+.navLarge{
+    /* font-size: 1.2em; */
+    background-color: black;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left:5%;
+    width: 90%;
+    z-index: 10;
+    margin-top: 1rem;
+    border-radius: 80px;
+    opacity: 90%;
+    box-sizing: border-box;
+}
+.droplinks{
+    padding: 0px;
+}

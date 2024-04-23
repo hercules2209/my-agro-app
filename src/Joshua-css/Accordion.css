@@ -1,0 +1,29 @@
+.accordion-title {
+    background-color: #fff;
+    color: #256916;
+    border-radius: 1em;
+    font-size: 1.2em;
+    line-height: normal;
+    padding: 1em;
+    margin: 1em;
+    width: 100%;
+    box-shadow: 0 0 0.5em rgba(0,0,0,.1);
+    /* z-index: 2; */
+}
+.accordion-content {
+    line-height: 2em;
+    margin: -1em;
+    margin-left: 1em;
+    margin-bottom: 2em;
+    width: 100%;
+    background-color: #BFEA7C;
+    border-radius:  1em;
+    padding: 1em;
+    /* margin-top: -1.5em; */
+    color: #416D19;
+    box-shadow: 0 0 0.5em rgba(0,0,0,.1);
+    text-align: center;
+    font-style: italic;
+    font-size: 1em;
+    /* z-index: 0; */
+}

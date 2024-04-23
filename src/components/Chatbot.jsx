@@ -1,4 +1,4 @@
-import './Chatbot.css';
+import '../Joshua-css/Chatbot.css';
 import { useEffect, useState,useRef } from 'react';
 import gptLogo from '../assets/chatgpt.svg';
 import addBtn from '../assets/add-30.png';
@@ -10,7 +10,9 @@ import sendBtn from '../assets/send.svg';
 import userIcon from '../assets/user-icon.jpeg';
 import gptImgLogo from '../assets/chatgptLogo.svg';
 import Logo from "../assets/logo.png"
+import ClipLoader from "react-spinners/ClipLoader";
 import { FaPlus } from "react-icons/fa6";
+import { set } from 'firebase/database';
 
 function Chatbot() {
   const msgEnd=useRef(null);
@@ -20,6 +22,8 @@ function Chatbot() {
     text: "Hi, I`m AgroBot. Designed to help you with your queries.",
     isBot: true,}
   ]);
+  const [sending, setSending] = useState(false);
+  
   useEffect(()=>{
     msgEnd.current.scrollIntoView();
    },[messages]); 
@@ -31,6 +35,7 @@ function Chatbot() {
       ...prevMessages,
       {text, isBot: false}
     ]);
+    setSending(true);
     try{
       const response = await fetch(`${corsProxyUrl}/chatbot`,{
         method:'POST',
@@ -49,6 +54,8 @@ function Chatbot() {
       ]);
     } catch(error){
       console.error('Error sending message:',error);
+    } finally {
+      setSending(false);
     }
   };
   const handleEnter=async(e)=>{
@@ -120,8 +127,20 @@ function Chatbot() {
           <div><button className='new-chat' onClick={()=>window.location.reload()}><FaPlus size="30"/></button></div>
         
           <div className="inp">
-            <input required type="text" placeholder='Type a message' value={input} onKeyDown={handleEnter} onChange={(e)=>{setInput(e.target.value)}}/>
-            <button className='send' onClick={handleSend}><img src={sendBtn} alt="Send" /></button>
+          {!sending ?
+          (<input required type="text" placeholder='Type your message' value={input} onKeyDown={handleEnter} onChange={(e)=>{setInput(e.target.value)}}/>)
+          :(<div className='input-empty'/>)}
+            {!sending ?(<button className='send' onClick={handleSend}><img src={sendBtn} alt="Send" /></button>):( 
+              <ClipLoader
+              color={"#36d7b7"}
+              loading={true}
+              cssOverride={""}
+              size={10}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+              speedMultiplier={0.5}
+              style={{alignSelf: "flex-end"}}
+            /> )}
           </div>
         </div>
       </div>

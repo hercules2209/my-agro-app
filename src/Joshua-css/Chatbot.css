@@ -1,0 +1,263 @@
+@import url(./Assets.css);
+.Main{
+  height: 100vh;
+  display: flex;
+  font-size: 62.5%;
+  margin: 0px;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  background-image: linear-gradient(0deg, rgb(240, 255, 210), rgb(255, 255, 255),rgb(245, 254, 201));
+}
+
+.sideBar{
+  flex:3;
+  border-right: 1px solid rgb(100,100,100);
+}
+.main{
+  flex:9;
+  z-index: 1;
+}
+.logo{
+  margin-right:1rem;
+}
+.brand{
+  font-size: 2rem;
+}
+.upperSide{
+  padding:2.5rem;
+  border-bottom:1px solid rgb(100, 100, 100) ;
+  height:70%
+
+}
+.upperSideTop{
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.addBtn {
+  height: 2rem;
+  padding-right: 1rem; 
+}
+.midBtn{
+  /* background: #5A4BFF; */
+  color: white;
+  border: none;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  width:25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin:0 auto;
+  margin-bottom:3rem;
+  
+}
+.query{
+  display:flex;
+  align-items: center;
+  background: transparent;
+  color:rgba(222,222,222,1);
+  padding:1.5rem;
+  width:25rem;
+  margin: 1rem auto;
+  border-radius: 0.5rem;
+}
+.query>img{
+  margin-right: 1rem;
+  object-fit: cover;
+  height:1.75rem;
+
+}
+.lowerSide{
+  padding:2rem;
+}
+.listItems{
+  margin: 0.75rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+.listItemsImg{
+  margin: 1rem;
+  padding-right:1rem;
+}
+.listItems:nth-child(1)>.listItemsImg{
+  margin-right: 0.5rem;
+
+}
+.listItems:nth-child(3)>.listItemsImg{
+  margin-right: 0.8rem;
+
+}
+.main{
+  min-height:calc(100vh - 14rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin:6rem,10rem;
+
+
+}
+.chats{
+  /* background-color: #5A4BFF; */
+  overflow: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-behavior: smooth;
+  width: 100%;
+  max-width: 60vw;
+  margin-top: 2.5rem;
+  height: calc(100vh - 15rem);
+  text-align: justify; 
+}
+.chatImg{
+  object-fit: cover;
+  width:3.5rem;
+  margin-right: 2rem;
+  border-radius: 0.5rem;
+  position: relative;
+  bottom:0.4rem
+
+
+}
+.chat{
+  text-align: right;
+  margin:1rem;
+  padding:1rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 1em 1em 0 1em;
+  display:flex;
+  align-items: flex-start;
+  background-image: linear-gradient(0deg,rgb(186, 202, 11), rgb(202, 220, 9));
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  opacity: 0;
+  animation: load 1s ease forwards;
+
+}
+.bot{
+  background-image: linear-gradient(0deg,  rgb(31, 42, 9), rgb(49, 65, 14));
+  width:fit-content;
+  border-radius: 1em 1em 1em 0;
+  width: 90%;
+
+  /* opacity: 0; */
+  .txt{
+    color: rgb(249, 255, 166);
+  }
+  
+}
+.chatFooter{
+  margin-top: 0;
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.inp {
+  animation: load 1s ease forwards;
+  padding: 0.5rem;
+  background: rgb(138, 208, 77);
+  border: solid 2px gray;
+  display: flex;
+  align-items: center;
+  border-radius: 2rem;
+  /* width: min(90vw, 68rem); */
+  font-size: 1em;
+  margin-top: 2rem;
+  height: 6rem; /* Add this line */
+}
+
+.inp>input{
+  font-size: 1.2em;
+  width:calc(100% - 3rem);
+  outline:none;
+  padding:1.25rem;
+  color:white;
+}
+.inp>input, .send{
+  background:transparent;
+  border:none;
+
+}
+.txt{
+  line-height: 2.4rem;
+  color:black ;
+}
+
+.new-chat{
+  border-radius: 100px;
+  height: 4rem;
+  width: 4rem;
+  margin-right: 1rem;
+  position: relative;
+  bottom:0;
+  padding-left: 1rem;
+  background-color: #e8c200;
+  /* box-shadow: 0 0 1em rgba(0,0,0,.5); */
+}
+.new-chat:hover{
+  background-color: rgb(89, 108, 89);
+  transition: 0.2s ease;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .sideBar {
+    flex: 1;
+
+  }
+
+  .main {
+    flex: 2;
+    background-color: transparent;
+  }
+
+  .upperSide {
+    padding: 1rem;
+
+  }
+
+  .midBtn {
+    width: 100%;
+
+  }
+
+  .query,
+  .listItems {
+    width: 100%;
+
+  }
+
+  .inp {
+    width: 50vw;
+    margin-bottom: 2rem;
+    border: solid 2px gray;
+  }
+}
+.sideBar{
+  display: none;
+}
+/* Medium screens, like tablets */
+@media only screen and (max-width: 1200px) {
+  /* Add specific styles for medium-sized screens if needed */
+  .sideBar{
+    display: none;
+  }
+  .new-chat{
+    margin-bottom: 2rem;
+  }
+  .inp{
+    width: 90vw;
+    margin-bottom: 2rem;
+    border: solid 2px gray;
+  }
+}

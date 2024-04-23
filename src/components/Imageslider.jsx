@@ -6,21 +6,21 @@ import './Imageslider.css';
 function Imageslider() {
   const slides = [
     {
-      url: require('../assets/images/Agrify2.jpg'),
+      url: require('../assets/images/img1.png'),
     },
     {
-      url: require('../assets/images/leaf_rust.png'),
+      url: require('../assets/images/img2.jpg'),
     },
     {
-      url: require('../assets/images/AIBuddy.png')
+      url: require('../assets/images/img3.jpg')
 
     },
     {
-      url: require('../assets/images/slider1.png')
+      url: require('../assets/images/img4.jpg')
 
     },
     {
-      url: require('../assets/images/slider2.png')
+      url: require('../assets/images/img3.jpg')
     },
   ];
 

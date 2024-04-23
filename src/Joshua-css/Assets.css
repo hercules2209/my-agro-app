@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root {
+    --sage: #87A922;
+    --white-green: #BFEA7C;
+    --dark-sage: #416D19;
+
+    --dry-green: #898121;
+    --yellow: #E7B10A;
+    --dark-dry-green: #4C4B16;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif !important;
+    font-weight: 500;
+    line-height: 3em;
+}
+@keyframes load {
+    0% {
+        opacity: 0;
+        transform: translateY(30%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}
